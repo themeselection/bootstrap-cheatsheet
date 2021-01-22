@@ -1,0 +1,65 @@
+{
+  "name": "bootstrap-cheatsheet",
+  "version": "1.0.0",
+  "description": "Bootstrap 5 CheatSheet",
+  "author": "ThemeSelection",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "license": "ThemeSelection standard Licenses",
+  "private": true,
+  "homepage": "https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/html/ltr/vertical-menu-template/",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "async": "^3.1.0",
+    "popper.js": "~2.0.0-next.4",
+    "bootstrap": "^5.0.0-beta1",
+    "ace-builds": "^1.4.12",
+    "gulp-cli": "^2.2.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-w3c-html-validator": "^1.4.4",
+    "jquery": "~3.5.1",
+    "node-notifier": "^5.4.3",
+    "node-sass": "^5.0.0",
+    "through2": "^3.0.1"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.0",
+    "gulp-clean": "^0.4.0",
+    "gulp-copy": "^4.0.1",
+    "gulp-csscomb": "^3.0.8",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-html-beautify": "^1.0.1",
+    "gulp-multistream": "^0.1.2",
+    "gulp-plumber": "^1.1.0",
+    "gulp-pug": "^4.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^1.0.0",
+    "gulp-rtlcss": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-terser": "^1.4.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-watch": "^5.0.1",
+    "merge-stream": "^2.0.0",
+    "minimist": "^1.2.0",
+    "pug": "^2.0.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "browserslist": [
+    "> 1%",
+    "ie >= 8",
+    "edge >= 15",
+    "ie_mob >= 10",
+    "ff >= 45",
+    "chrome >= 45",
+    "safari >= 7",
+    "opera >= 23",
+    "ios >= 7",
+    "android >= 4",
+    "bb >= 10"
+  ]
+}

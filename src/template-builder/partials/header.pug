@@ -1,0 +1,20 @@
+nav.navbar.navbar-expand-lg.align-items-center
+  .navbar-container.d-flex.content
+    h1 Bootstrap 5 CheatSheet
+    ul.navbar-nav.me-auto.mb-2.mb-lg-0
+      li.nav-item
+        a.nav-link(aria-current='page' href='index.html') Home
+      li.nav-item
+        a.nav-link(href='variables.html') Variables
+      li.nav-item
+        a.nav-link(href='mixins.html') Mixins
+      li.nav-item
+        a.nav-link(href='#') Themes
+    ul.nav.navbar-nav.align-items-center.ml-auto
+      li.nav-item.nav-search
+        .search-input
+          .search-input-icon
+              i(data-feather="search" class="")
+          input.form-control.input-search(type='text', placeholder='Search...', tabindex='-1', data-search="search")
+          .search-input-close
+              i(data-feather="x")

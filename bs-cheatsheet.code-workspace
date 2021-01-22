@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"editor.tabSize": 2,
+		// "editor.formatOnSave": true,
+		"diffEditor.ignoreTrimWhitespace": false
+	}
+}

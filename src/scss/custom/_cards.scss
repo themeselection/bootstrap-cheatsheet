@@ -1,0 +1,82 @@
+.bs-cheatsheet{
+  .card{
+    border: 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 16px -4px rgba($black, 0.22);
+    background-color: $white;
+    .card-header{
+      padding: 15px 18px 14px;
+      border-radius: 5px;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      background-color: $card-head-bg;
+      text-transform: uppercase;
+      color: $white;
+      font-weight: 600;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: 1px;
+      .item-link{
+        color: $white;
+      }
+    }
+    .card-body{
+      padding:16px 0;
+    }
+    // list of categories
+    .list-items{
+      padding: 0;
+      margin: 0;
+      // each list item of categories
+      .list-item{
+        list-style: none;
+        min-height: 36px;
+        a.list-item-text{
+          padding: 9px 9px 9px 18px;
+          color: $item-color;
+          font-weight: 500;
+          flex-grow: 1;
+          text-decoration: none;
+        }
+        &:hover{
+          background-color: rgba($item-active-color, 0.08);
+          a{
+            color: $item-active-color;
+          }
+        }
+        &.active{
+          background-color: $item-active-color;
+          a{
+            color: $white;
+          }
+        }
+        .list-item-content{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        .list-item-copy{
+          padding: 9px 9px 9px 0;
+          display: flex;
+          a{
+            padding-right: 9px;
+          }
+        }
+        .code-snippet{
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+// card collapse and collapsing transition
+.collapse, .collapsing{
+  transition: none !important;
+}
+
+// New in bootstrap 5 highlight
+.show-highlight .list-item-bs-new{
+  background-color: $info;
+}

@@ -1,0 +1,21 @@
+//---------------------------------------------------------------------------------------------------------
+    File Name: index.pug
+    Description: Bootstrap 5 CheatSheet Index page includes components and elements
+  ---------------------------------------------------------------------------------------------------------//
+
+extend ../base
+
+block pageVars
+  - var pageTitle    = "UI, Components, Elements"
+
+block content
+  include ../contents/alert.html
+  include ../contents/badge.html
+  include ../contents/buttons.html
+  include ../contents/collapse.html
+  include ../contents/breadcrumb.html
+  include ../contents/pill.html
+  include ../contents/tooltip.html
+
+  //- modal snippet
+  include ../contents/snippet.html

@@ -1,0 +1,10 @@
+// Modal Style
+#modal-snippet {
+  .modal-dialog.modal-fullscreen {
+    max-width: 100%;
+    max-height: 300px;
+    bottom: 0 !important;
+    position: absolute;
+    left: 0;
+  }
+}

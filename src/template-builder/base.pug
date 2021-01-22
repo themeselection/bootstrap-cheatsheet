@@ -1,0 +1,31 @@
+doctype html
+html
+    // BEGIN: Head
+    head
+        block meta
+            include includes/head.pug
+        block styles
+            include includes/styles.pug
+    // END: Head
+    = '\n'
+    // BEGIN: Body
+    body.bs-cheatsheet
+        // BEGIN: Header
+        block header
+            include partials/navbar
+        // END: Header
+
+        // BEGIN: Content
+        .container
+          include contents/filters.html
+          #grid.row
+            block content
+        // END: Content
+
+    // BEGIN: Footer
+    block footer
+        include partials/footer
+    // END: Footer
+
+    block scripts
+        include includes/scripts.pug
