@@ -65,7 +65,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // To create grid
   window.demo = new Demo(document.getElementById("grid"));
 
-  // To shuffle on collapse and expand
+  directHashLinkRedirect()
+
   var collapseItems = document.getElementsByClassName('collapse')
   for (let collapseItem of collapseItems) {
     collapseItem.addEventListener('shown.bs.collapse', function () {
@@ -134,7 +135,6 @@ var copyAttr = $('.list-item-copy-attr'),
 function copyToClipboard(element) {
   var $temp = $("<textarea>");
   $("body").append($temp);
-  console.log(element)
   $temp.text(element).trigger('select');
   document.execCommand("copy");
   $temp.remove();
@@ -158,19 +158,28 @@ copyCode.on('click', function (e) {
 copySnippet.on('click', function (e) {
   e.stopPropagation()
   var editor = ace.edit("editor");
+  var sel = editor.selection.toJSON(); // save selection
   editor.selectAll();
-  copyToClipboard(editor.getValue())
+  editor.focus();
   document.execCommand('copy');
 });
+
+//---------------------- ListItem Click ----------------------//
 
 // On click of list item
 listItemElement.on('click',function(){
 
   var $this = $(this),
-  codeSnippet = $this.find('.code-snippet')[0].innerHTML;
+  snippetTitle = $('.snippet-title');
+  var codeSnippet = $this.find('.code-snippet')[0].innerHTML;
+  snippetTitle.text($this.closest(".card").find(".card-header span")[0].innerHTML);
 
   listItemElement.removeClass("active");
   $this.addClass("active");
+
+  if ( $this.attr('href') == location.hash ) {
+    e.preventDefault()
+  }
 
   // initialize editor
   var editor = ace.edit("editor");
@@ -191,5 +200,72 @@ listItemElement.on('click',function(){
 
   // Snippet Modal
   var snippetModal = new bootstrap.Modal(document.getElementById('modal-snippet'));
-  snippetModal.show()
+  if(!$('#modal-snippet').hasClass("show")){
+    snippetModal.show()
+  }
 })
+
+// Hash link redirection
+function directHashLinkRedirect(){
+  var hashItem= location.hash;
+  if(location.hash.length > 0) {
+    $(hashItem).trigger('click');
+  }
+}
+
+//---------------------- Next - Prev ----------------------//
+// Array
+listItemArr = [];
+$(".list-item").each(function() {
+  listItemArr.push($(this).attr("id"));
+});
+
+// This is working fine --------
+
+// $('.prev').on('click', function(){
+//   var activeItem = $('.list-item.active').attr("id");
+//   var prevItem = listItemArr.length - 1;
+//   var index = listItemArr.indexOf(activeItem);
+//   if (index >= 1 && index < listItemArr.length) {
+//       prevItem = index - 1;
+//   }
+//   var prevItemEle = $("#"+listItemArr[prevItem]);
+//   $(prevItemEle).closest("ul").show();
+//   $(prevItemEle).get(0).click();
+// });
+
+// $('.next').on('click', function(){
+//   var nextItem = 0,
+//     activeItem = $('.list-item.active').attr("id"),
+//     index = listItemArr.indexOf(activeItem);
+//   if (index >= 0 && index < listItemArr.length - 1) {
+//       nextItem = index + 1;
+//   }
+//   var nextItemEle = $("#"+listItemArr[nextItem]);
+//   $(nextItemEle).closest(".collapse").show();
+//   $(nextItemEle).get(0).click();
+// });
+
+
+//---------------------- Next - Prev ----------------------//
+// Parent class method
+
+$('.prev').on('click', function(){
+  if($('.list-item.active').prev().length){
+    $('.list-item.active').prev().trigger("click")
+  }
+  else{
+    $('.list-item.active').closest('.category').prev().find(".list-items .list-item:last-child").trigger("click");
+    $('.list-item.active').closest('.category').find('.collapse').addClass("show")
+  }
+});
+
+$('.next').on('click', function(){
+  if($('.list-item.active').next().length){
+    $('.list-item.active').next().trigger("click")
+  }
+  else{
+    $('.list-item.active').closest('.category').next().find(".list-items .list-item:first-child").trigger("click");
+    $('.list-item.active').closest('.category').find('.collapse').addClass("show")
+  }
+});
