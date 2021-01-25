@@ -65,8 +65,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // To create grid
   window.demo = new Demo(document.getElementById("grid"));
 
+  // On load redirection to hash link
   directHashLinkRedirect()
 
+  // card shuffle on collapse show/hide
   var collapseItems = document.getElementsByClassName('collapse')
   for (let collapseItem of collapseItems) {
     collapseItem.addEventListener('shown.bs.collapse', function () {
@@ -78,17 +80,20 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+//---------------------- Actions ----------------------//
+// highlight New
+// collapse
+// expand
+// shuffle
 
 // Variables
 var highlightNew = $("#btn-toggle-new"),
-collapseElement = $('.collapse'),
-listItemElement = $('.list-item'),
 expandAll = $('#expandAll');
 collapseAll = $('#collapseAll');
 
 // Highlight BS New Items
 highlightNew.on('click', function(){
-  var newBsElems = $(".list-item-bs-new");
+  var newBsElems = $(".category.shuffle-item--visible .list-item-bs-new");
   if(!newBsElems.hasClass('show')){
     expandAll.trigger('click');
   }
@@ -101,18 +106,20 @@ expandAll.on('click', function(){
 })
 collapseAll.on('click', function(){
   collapseAllCategory()
+  // remove highlight on collapse
   $('body').removeClass("show-highlight");
   highlightNew.prop("checked", false)
 })
+
 // To collapse all
 function collapseAllCategory() {
-  collapseElement.removeClass("show");
+  $('.category.shuffle-item--visible').find('.collapse').removeClass("show");
   shuffleCategory()
 }
 
 // To expand all
 function expandAllCategory() {
-  collapseElement.addClass("show");
+  $('.category.shuffle-item--visible').find('.collapse').addClass("show");
   shuffleCategory()
 }
 
@@ -120,7 +127,7 @@ function expandAllCategory() {
 function shuffleCategory() {
   var element = document.querySelector('#grid');
   var shuffleInstance = new Shuffle(element, {
-    itemSelector: '.category'
+    itemSelector: '.category.shuffle-item--visible'
   });
   shuffleInstance.filter();
 }
@@ -166,8 +173,10 @@ copySnippet.on('click', function (e) {
 
 //---------------------- ListItem Click ----------------------//
 
+var listItemElement = $('.list-item');
+
 // On click of list item
-listItemElement.on('click',function(){
+listItemElement.on('click',function(e){
 
   var $this = $(this),
   snippetTitle = $('.snippet-title');
@@ -177,9 +186,12 @@ listItemElement.on('click',function(){
   listItemElement.removeClass("active");
   $this.addClass("active");
 
-  if ( $this.attr('href') == location.hash ) {
+  location.hash = $this.find('.list-item-text').attr("href")
+
+  if ( $this.find('.list-item-text').attr('href') == location.hash ) {
     e.preventDefault()
   }
+
 
   // initialize editor
   var editor = ace.edit("editor");
@@ -189,6 +201,11 @@ listItemElement.on('click',function(){
 
   // update preview on snippet change
   function updateCodeSnippet(){
+    var customDemoClass = "";
+    if($this.data("custom-class")){
+      customDemoClass = $this.data("custom-class");
+    }
+    $('#preview').removeClass().addClass("bd-example "+customDemoClass)
     $('#preview').html(editor.getValue());
   }
 
@@ -214,49 +231,13 @@ function directHashLinkRedirect(){
 }
 
 //---------------------- Next - Prev ----------------------//
-// Array
-listItemArr = [];
-$(".list-item").each(function() {
-  listItemArr.push($(this).attr("id"));
-});
-
-// This is working fine --------
-
-// $('.prev').on('click', function(){
-//   var activeItem = $('.list-item.active').attr("id");
-//   var prevItem = listItemArr.length - 1;
-//   var index = listItemArr.indexOf(activeItem);
-//   if (index >= 1 && index < listItemArr.length) {
-//       prevItem = index - 1;
-//   }
-//   var prevItemEle = $("#"+listItemArr[prevItem]);
-//   $(prevItemEle).closest("ul").show();
-//   $(prevItemEle).get(0).click();
-// });
-
-// $('.next').on('click', function(){
-//   var nextItem = 0,
-//     activeItem = $('.list-item.active').attr("id"),
-//     index = listItemArr.indexOf(activeItem);
-//   if (index >= 0 && index < listItemArr.length - 1) {
-//       nextItem = index + 1;
-//   }
-//   var nextItemEle = $("#"+listItemArr[nextItem]);
-//   $(nextItemEle).closest(".collapse").show();
-//   $(nextItemEle).get(0).click();
-// });
-
-
-//---------------------- Next - Prev ----------------------//
-// Parent class method
-
 $('.prev').on('click', function(){
   if($('.list-item.active').prev().length){
     $('.list-item.active').prev().trigger("click")
   }
   else{
-    $('.list-item.active').closest('.category').prev().find(".list-items .list-item:last-child").trigger("click");
-    $('.list-item.active').closest('.category').find('.collapse').addClass("show")
+      $('.list-item.active').closest('.category').prev('.shuffle-item--visible').find(".list-items .list-item:last-child").trigger("click");
+      $('.list-item.active').closest('.category').find('.collapse').addClass("show")
   }
 });
 
@@ -265,7 +246,7 @@ $('.next').on('click', function(){
     $('.list-item.active').next().trigger("click")
   }
   else{
-    $('.list-item.active').closest('.category').next().find(".list-items .list-item:first-child").trigger("click");
+    $('.list-item.active').closest('.category').next('.shuffle-item--visible').find(".list-items .list-item:first-child").trigger("click");
     $('.list-item.active').closest('.category').find('.collapse').addClass("show")
   }
 });
