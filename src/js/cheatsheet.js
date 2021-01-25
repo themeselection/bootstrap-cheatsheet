@@ -93,8 +93,8 @@ collapseAll = $('#collapseAll');
 
 // Highlight BS New Items
 highlightNew.on('click', function(){
-  var newBsElems = $(".category.shuffle-item--visible .list-item-bs-new");
-  if(!newBsElems.hasClass('show')){
+  var newBsElem = $(".category.shuffle-item--visible .list-item-bs-new");
+  if(!newBsElem.hasClass('show')){
     expandAll.trigger('click');
   }
   $('body').toggleClass("show-highlight");
@@ -113,6 +113,7 @@ collapseAll.on('click', function(){
 
 // To collapse all
 function collapseAllCategory() {
+  $('.category.shuffle-item--visible').find('.card-header').addClass("collapsed");
   $('.category.shuffle-item--visible').find('.collapse').removeClass("show");
   shuffleCategory()
 }
@@ -120,6 +121,7 @@ function collapseAllCategory() {
 // To expand all
 function expandAllCategory() {
   $('.category.shuffle-item--visible').find('.collapse').addClass("show");
+  $('.category.shuffle-item--visible').find('.card-header').removeClass("collapsed");
   shuffleCategory()
 }
 
@@ -234,18 +236,16 @@ function directHashLinkRedirect(){
 $('.prev').on('click', function(){
   if($('.list-item.active').prev().length){
     $('.list-item.active').prev().trigger("click")
-  }
-  else{
-      $('.list-item.active').closest('.category').prev('.shuffle-item--visible').find(".list-items .list-item:last-child").trigger("click");
-      $('.list-item.active').closest('.category').find('.collapse').addClass("show")
+  }else{
+    $('.list-item.active').closest('.category').prev('.shuffle-item--visible').find(".list-items .list-item:last-child").trigger("click");
+    $('.list-item.active').closest('.category').find('.collapse').addClass("show")
   }
 });
 
 $('.next').on('click', function(){
   if($('.list-item.active').next().length){
     $('.list-item.active').next().trigger("click")
-  }
-  else{
+  }else{
     $('.list-item.active').closest('.category').next('.shuffle-item--visible').find(".list-items .list-item:first-child").trigger("click");
     $('.list-item.active').closest('.category').find('.collapse').addClass("show")
   }

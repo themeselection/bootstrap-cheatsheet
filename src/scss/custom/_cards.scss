@@ -4,11 +4,13 @@
     border-radius: 5px;
     box-shadow: 0 2px 16px -4px rgba($black, 0.22);
     background-color: $white;
+    margin-bottom: 1.5rem;
     .card-header{
-      padding: 15px 18px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 18px;
       border-radius: 5px;
-      border-bottom-left-radius: 0;
-      border-bottom-right-radius: 0;
       background-color: $card-head-bg;
       text-transform: uppercase;
       color: $white;
@@ -17,6 +19,10 @@
       font-style: normal;
       line-height: normal;
       letter-spacing: 1px;
+      &:not(.collapsed){
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
       .item-link{
         color: $white;
       }
@@ -44,6 +50,9 @@
           a{
             color: $item-active-color;
           }
+          .list-item-copy{
+            display: flex;
+          }
         }
         &.active{
           background-color: $item-active-color;
@@ -58,9 +67,12 @@
         }
         .list-item-copy{
           padding: 9px 9px 9px 0;
-          display: flex;
+          display: none;
           a{
             padding-right: 9px;
+            &:hover{
+              cursor: pointer;
+            }
           }
         }
         .code-snippet{

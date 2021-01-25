@@ -1,0 +1,33 @@
+.bs-cheatsheet{
+  .cheatsheet-filters{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    .btn-outline-primary{
+      border-color: $cheatsheet-primary;
+      color: $cheatsheet-primary;
+      font-weight: 600;
+      &:hover{
+        color: $cheatsheet-primary;
+        background-color: rgba($cheatsheet-primary,0.08);
+        border-color: $cheatsheet-primary;
+      }
+    }
+    .btn-check{
+      &:checked, &:active{
+        + .btn-outline-primary{
+          color: $cheatsheet-primary;
+          background-color: rgba($cheatsheet-primary,0.08);
+          border-color: $cheatsheet-primary;
+        }
+      }
+      &:focus + .btn-outline-primary{
+        box-shadow: none;
+      }
+    }
+    .btn-outline-primary:focus{
+      box-shadow: none;
+    }
+  }
+}
