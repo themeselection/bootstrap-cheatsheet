@@ -31,3 +31,14 @@
     }
   }
 }
+
+
+@include media-breakpoint-down(md) {
+  .bs-cheatsheet .cheatsheet-filters{
+    flex-direction: column;
+    align-items: start;
+    .filter-buttons > *{
+      margin-top: 1rem;
+    }
+  }
+}

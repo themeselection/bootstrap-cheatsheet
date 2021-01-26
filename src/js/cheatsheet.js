@@ -59,6 +59,11 @@ class Demo {
     });
   }
 }
+// on link click
+// $('.card-header a').on("click", function(event){
+//   console.log("object")
+//   event.stopPropagation();
+// })
 
 // On load event
 document.addEventListener("DOMContentLoaded", () => {
@@ -78,6 +83,15 @@ document.addEventListener("DOMContentLoaded", () => {
       shuffleCategory()
     })
   }
+
+
+  // On modal close location hash clear
+  // var snippetModal = document.getElementById('modal-snippet')
+  // snippetModal.addEventListener('hidden.bs.modal', function () {
+  //   console.log("object")
+  //   location.hash = ""
+  // })
+
 });
 
 //---------------------- Actions ----------------------//
@@ -183,7 +197,7 @@ listItemElement.on('click',function(e){
   var $this = $(this),
   snippetTitle = $('.snippet-title');
   var codeSnippet = $this.find('.code-snippet')[0].innerHTML;
-  snippetTitle.text($this.closest(".card").find(".card-header span")[0].innerHTML);
+  snippetTitle.text($this.find('.item-filter-text')[0].innerHTML);
 
   listItemElement.removeClass("active");
   $this.addClass("active");
@@ -197,7 +211,7 @@ listItemElement.on('click',function(e){
 
   // initialize editor
   var editor = ace.edit("editor");
-  editor.setTheme("ace/theme/twilight");
+  // editor.setTheme("ace/theme/twilight");
   editor.session.setMode("ace/mode/html");
   editor.setValue(codeSnippet);
 
@@ -218,7 +232,10 @@ listItemElement.on('click',function(e){
   editor.on("input", updateCodeSnippet);
 
   // Snippet Modal
-  var snippetModal = new bootstrap.Modal(document.getElementById('modal-snippet'));
+  var snippetModal = new bootstrap.Modal(document.getElementById('modal-snippet'),{
+    keyboard: false,
+    backdrop: false
+  });
   if(!$('#modal-snippet').hasClass("show")){
     snippetModal.show()
   }
