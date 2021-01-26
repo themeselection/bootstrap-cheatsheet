@@ -267,3 +267,25 @@ $('.next').on('click', function(){
     $('.list-item.active').closest('.category').find('.collapse').addClass("show")
   }
 });
+
+//---------------------- Initialize Tooltips ----------------------//
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+if (tooltipTriggerList) {
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+  })
+}
+
+//---------------------- Initialize Validation ----------------------//
+var forms = document.querySelectorAll('.needs-validation')
+Array.prototype.slice.call(forms)
+  .forEach(function (form) {
+    form.addEventListener('submit', function (event) {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
