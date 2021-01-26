@@ -17,8 +17,8 @@
     .btn-check{
       &:checked, &:active{
         + .btn-outline-primary{
-          color: $cheatsheet-primary;
-          background-color: rgba($cheatsheet-primary,0.08);
+          color: $white;
+          background-color: $cheatsheet-primary;
           border-color: $cheatsheet-primary;
         }
       }

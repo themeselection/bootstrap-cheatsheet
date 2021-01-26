@@ -46,16 +46,16 @@
           text-decoration: none;
         }
         &:hover{
-          background-color: rgba($item-active-color, 0.08);
+          background-color: rgba($cheatsheet-primary, 0.08);
           a{
-            color: $item-active-color;
+            color: $cheatsheet-primary;
           }
           .list-item-copy{
             display: flex;
           }
         }
         &.active{
-          background-color: $item-active-color;
+          background-color: $cheatsheet-primary;
           a{
             color: $white;
           }
