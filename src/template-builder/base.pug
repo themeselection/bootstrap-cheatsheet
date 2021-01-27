@@ -12,15 +12,17 @@ html
     body.bs-cheatsheet
         // BEGIN: Header
         block header
-            include partials/navbar
+          include partials/header.html
         // END: Header
+        main
+          include partials/masthead.html
 
-        // BEGIN: Content
-        .container
-          include contents/filters.html
-          #grid.row
-            block content
-        // END: Content
+          // BEGIN: Content
+          .container.bs-content
+            include contents/filters.html
+            #grid.row
+              block content
+          // END: Content
 
     // BEGIN: Footer
     block footer

@@ -1,87 +1,10 @@
 // Editor & preview style
 .bs-cheatsheet.modal-open{
   overflow: auto;
+  margin-bottom: $modal-height;
 }
-#modal-snippet{
-  &.modal{
-    top: auto;
-    bottom: 0;
-    min-height: 300px;
-    height: auto;
-  }
-  #editor, #preview{
-    min-height: 160px;
-    margin-top: .75rem;
-    border-radius: 5px;
-  }
-  // Modal Header section
-  .modal-header{
-    background-color: $modal-header-color;
-    padding-top: .62rem;
-    padding-bottom: .62rem;
-    border: 0;
-    .btn-action,
-    .btn-close{
-      background-color: $modal-btn-color;
-      color: $white;
-      display: flex;
-      padding: .6rem;
-      &:focus{
-        box-shadow: none;
-      }
-    }
-    .btn-close{
-      padding: .45rem;
-      background-image: none;
-      opacity: 1;
-      font-weight: 600;
-      font-size: 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .snippet-title{
-      color: $white;
-      text-align: center;
-      min-width: 200px;
-      margin-left: 1.25rem;
-      margin-right: 1.25rem;
-    }
-  }
-  .header-actions{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  // Modal Body area
-  .modal-body{
-    background-color: $modal-bg-color;
-    .copy-snippet-code{
-      cursor: pointer;
-      position: absolute;
-      top: -2px;
-      right: 1rem;
-      background-color: #e9ecef;
-      color: #3c3950;
-      border-radius: 5px;
-      font-size: 0.875rem;
-      font-weight: 600;
-      padding: 1px 8px;
-    }
-  }
-
-  // Preview area
-  #preview{
-    background-color: $white;
-    padding: 1.5rem;
-  }
-}
-
-@include media-breakpoint-down(sm) {
-  #modal-snippet .modal-header .snippet-title{
-    font-size: 1rem;
-    margin: 0;
-    min-width: 180px;
-  }
+#editor, #preview{
+  min-height: 160px;
+  margin-top: .75rem;
+  border-radius: 5px;
 }

@@ -4,6 +4,29 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 3rem;
+    .filter-search{
+      max-width: 350px;
+      border-radius: 5px;
+      box-shadow: 0 1.2px 3.5px 0 rgba($black, 0.06);
+      .input-group-text{
+        background-color: transparent;
+        color: #b9b9c3;
+        padding-right: 0;
+      }
+      .form-control{
+        border-left-width: 0 !important;
+        &:focus{
+          box-shadow: none;
+        }
+      }
+      .form-control,
+      .input-group-text{
+        border: 1px solid #e9ecef;
+      }
+      .input-search::placeholder{
+        color: #b9b9c3;
+      }
+    }
     .btn-outline-primary{
       border-color: $cheatsheet-primary;
       color: $cheatsheet-primary;

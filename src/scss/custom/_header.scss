@@ -1,0 +1,57 @@
+.bs-cheatsheet{
+  .cheatsheet-navbar{
+    background-color: $cheatsheet-primary;
+    .navbar-toggler {
+      &:focus{
+        box-shadow: none;
+      }
+      > svg{
+        fill: $white;
+      }
+    }
+    ul.navbar-nav{
+      li a{
+        color: $white;
+        fill: $white;
+      }
+    }
+    .cheatsheet-menu{
+      li a{
+        font-weight: 600;
+        letter-spacing: .17px;
+      }
+    }
+    .cheatsheet-social{
+      li a{
+        opacity: 0.8;
+        &:hover{
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .cheatsheet-hero{
+    // height: 340px;
+    background-color: #f8f9fa;
+    .cheatsheet-title{
+      color: $cheatsheet-text-color;
+      font-weight: 800;
+    }
+    .cheatsheet-subtitle{
+      font-weight: 600;
+      color: #7b7885;
+      margin-bottom: 2rem;
+    }
+
+    .cheatsheet-infoline{
+      padding: 1.5rem;
+      background-color: #e9ecef;
+      .info-link{
+        text-decoration: none;
+        color: $cheatsheet-text-color;
+        font-weight: 600;
+      }
+    }
+  }
+}

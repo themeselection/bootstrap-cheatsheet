@@ -1,6 +1,7 @@
 # Compiled source #
 ###################
-/assets
+/assets/css
+/assets/js
 
 # Dependencies #
 ################
