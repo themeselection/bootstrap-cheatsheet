@@ -56,7 +56,7 @@
 }
 
 
-@include media-breakpoint-down(md) {
+@include media-breakpoint-down(lg) {
   .bs-cheatsheet .cheatsheet-filters{
     flex-direction: column;
     align-items: start;
@@ -65,3 +65,8 @@
     }
   }
 }
+@include media-breakpoint-down(md) {
+  .bs-cheatsheet .cheatsheet-filters{
+    margin-bottom: 2.5rem;
+  }
+ }

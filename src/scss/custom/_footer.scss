@@ -1,0 +1,98 @@
+.bs-cheatsheet{
+  .cheatsheet-footer{
+    background-color: $footer-bg;
+    .row{
+      align-items: center;
+    }
+    a{
+      text-decoration: none;
+    }
+    .footer-links{
+      border-right: 1px solid #ced4da;
+      list-style: none;
+      margin-bottom: 0;
+      padding: 1rem;;
+      padding-right: 0;
+      li{
+        padding: 12px 0;
+        line-height: 1rem;
+      }
+      a{
+        color: $cheatsheet-text-color;
+        font-weight: 600;
+      }
+    }
+    .subscription-title{
+      color: #5e5873;
+      font-weight: 600;
+      margin-bottom: 0;
+    }
+    .cheatsheet-social{
+      align-items: center;
+      .social-title{
+        color: $cheatsheet-text-color;
+        font-weight: 500;
+      }
+      .nav-item a{
+        color: $cheatsheet-text-color;
+        fill: $cheatsheet-text-color;
+        opacity: 0.8;
+        &:hover{
+          opacity: 1;
+        }
+      }
+    }
+    .mailster-form{
+      .mailster-form-fields{
+        max-width: 350px;
+        position: relative;
+      }
+      .input{
+        padding: 10px 100px 10px 16px;
+        border-radius: 5px;
+        box-shadow: 0 3px 16px -6px rgba($black, 0.29);
+        background-color: $white;
+        &::placeholder{
+          color: #b9b9c3;
+        }
+        &:focus{
+          outline: none;
+          border-color: transparent;
+        }
+      }
+      .form-submit{
+        position: absolute;
+        top: 2px;
+        right: .5rem;
+        .submit-button{
+          background-color: $cheatsheet-primary;
+          border-color: $cheatsheet-primary;
+          font-weight: 500;
+        }
+      }
+    }
+    .footer-hr{
+      color: #ced4da;
+      opacity: .5;
+    }
+    .footer{
+      border-top: 1px solid #ced4da;
+      padding: .75rem 0;
+      .footer-container{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .bs-cheatsheet{
+    .cheatsheet-footer{
+      .footer-links{
+        border: 0;
+      }
+    }
+  }
+}

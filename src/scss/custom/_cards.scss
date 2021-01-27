@@ -1,82 +1,84 @@
 .bs-cheatsheet{
-  .card{
-    border: 0;
-    border-radius: 5px;
-    box-shadow: 0 2px 16px -4px rgba($black, 0.22);
-    background-color: $white;
-    margin-bottom: 1.5rem;
-    .card-header{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 14px 18px;
+  .category{
+    .card{
+      border: 0;
       border-radius: 5px;
-      background-color: $card-head-bg;
-      text-transform: uppercase;
-      color: $white;
-      font-weight: 600;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: normal;
-      letter-spacing: 1px;
-      &:not(.collapsed){
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-      }
-      .item-link{
+      box-shadow: 0 2px 16px -4px rgba($black, 0.22);
+      background-color: $white;
+      margin-bottom: 1.5rem;
+      .card-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px 18px;
+        border-radius: 5px;
+        background-color: $card-head-bg;
+        text-transform: uppercase;
         color: $white;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: 1px;
+        &:not(.collapsed){
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+        .item-link{
+          color: $white;
+        }
       }
-    }
-    .card-body{
-      padding:16px 0;
-    }
-    // list of categories
-    .list-items{
-      padding: 0;
-      margin: 0;
-      // each list item of categories
-      .list-item{
-        list-style: none;
-        min-height: 36px;
-        a.list-item-text{
-          padding: 9px 9px 9px 18px;
-          color: $item-color;
-          font-weight: 500;
-          flex-grow: 1;
-          text-decoration: none;
-        }
-        &:hover{
-          background-color: rgba($cheatsheet-primary, 0.08);
-          a{
-            color: $cheatsheet-primary;
+      .card-body{
+        padding:16px 0;
+      }
+      // list of categories
+      .list-items{
+        padding: 0;
+        margin: 0;
+        // each list item of categories
+        .list-item{
+          list-style: none;
+          min-height: 36px;
+          a.list-item-text{
+            padding: 6px 18px;
+            color: $item-color;
+            font-weight: 500;
+            flex-grow: 1;
+            text-decoration: none;
           }
-          .list-item-copy{
-            display: flex;
-          }
-        }
-        &.active{
-          background-color: $cheatsheet-primary;
-          a{
-            color: $white;
-          }
-        }
-        .list-item-content{
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-        }
-        .list-item-copy{
-          padding: 9px 9px 9px 0;
-          display: none;
-          a{
-            padding-right: 9px;
-            &:hover{
-              cursor: pointer;
+          &:hover{
+            background-color: rgba($cheatsheet-primary, 0.08);
+            a{
+              color: $cheatsheet-primary;
+            }
+            .list-item-copy{
+              display: flex;
             }
           }
-        }
-        .code-snippet{
-          display: none;
+          &.active{
+            background-color: $cheatsheet-primary;
+            a{
+              color: $white;
+            }
+          }
+          .list-item-content{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+          .list-item-copy{
+            padding: 6px 6px 6px 0;
+            display: none;
+            a{
+              padding-right: 9px;
+              &:hover{
+                cursor: pointer;
+              }
+            }
+          }
+          .code-snippet{
+            display: none;
+          }
         }
       }
     }

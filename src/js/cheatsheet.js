@@ -29,7 +29,7 @@ class Demo {
   _handleSearchKeyup(evt) {
     const searchText = evt.target.value.toLowerCase();
     var filteredItems = $(".item-filter-text");
-      filteredItems.removeClass("highlight");
+      filteredItems.removeClass("cheatsheet-highlight");
     this.shuffle.filter((element, shuffle) => {
       let filteredItems = element.getElementsByClassName("item-filter-text");
 
@@ -38,7 +38,7 @@ class Demo {
         const titleText = filteredItem.textContent.toLowerCase().trim();
         if(titleText.indexOf(searchText) !== -1){
           if (searchText !== "") {
-            filteredItem.classList.add("highlight");
+            filteredItem.classList.add("cheatsheet-highlight");
           }
         }
       }
@@ -202,11 +202,11 @@ listItemElement.on('click',function(e){
   listItemElement.removeClass("active");
   $this.addClass("active");
 
-  location.hash = $this.find('.list-item-text').attr("href")
+  // location.hash = $this.find('.list-item-text').attr("href")
 
-  if ( $this.find('.list-item-text').attr('href') == location.hash ) {
-    e.preventDefault()
-  }
+  // if ( $this.find('.list-item-text').attr('href') == location.hash ) {
+  //   e.preventDefault()
+  // }
 
 
   // initialize editor
@@ -233,7 +233,6 @@ listItemElement.on('click',function(e){
 
   // Snippet Modal
   var snippetModal = new bootstrap.Modal(document.getElementById('modal-snippet'),{
-    keyboard: false,
     backdrop: false
   });
   if(!$('#modal-snippet').hasClass("show")){
