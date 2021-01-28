@@ -1,0 +1,112 @@
+<div class="col-sm-6 col-md-4 col-lg-3 category">
+  <div class="card">
+    <div class="card-header" data-bs-toggle="collapse" href="#categoryToasts" role="button" aria-expanded="false" aria-controls="categoryToasts">
+      <span class="item-filter-text">Toasts</span>
+      <a href="https://getbootstrap.com/docs/5.0/components/toasts/" target="_blank" class="item-link" data-bs-toggle="tooltip" data-bs-placement="top" title="See Official Documentation">
+        <img src="assets/images/fonts/box-arrow-up-right.svg" alt="External link">
+      </a>
+    </div>
+    <div class="card-body collapse show" id="categoryToasts">
+      <ul class="list-items">
+        <li class="list-item" id="toast">
+          <div class="list-item-content">
+            <a href="#toast" class="list-item-text">
+              <span class="item-filter-text">toast</span>
+            </a>
+            <div class="list-item-copy">
+              <a class="list-item-copy-attr" data-original-title="copy to clipboard" data-clipboard-text="toast" data-bs-toggle="tooltip" title="CSS class to clipboard">
+                <img src="assets/images/fonts/files.svg" alt="Copy class">
+              </a>
+              <a class="list-item-copy-code" data-original-title="copy snippet to clipboard" data-bs-toggle="tooltip" title="Code snippet to clipboard">
+                <img src="assets/images/fonts/code-slash.svg" alt="Copy code">
+              </a>
+            </div>
+          </div>
+          <div class="code-snippet"><!-- Note: A custom script is used to activate toasts:
+
+var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+var toastList = toastElList.map(function (toastEl) {
+  return new bootstrap.Toast(toastEl, {
+    autohide: false
+  }).show()
+})
+-->
+<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="toast-header">
+    <img src="./toast-img.png" class="rounded me-2" alt="toast-logo">
+    <strong class="me-auto">Bootstrap</strong>
+    <small>11 mins ago</small>
+    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+  </div>
+  <div class="toast-body">
+    Hello, world! This is a toast message.
+  </div>
+</div></div>
+        </li>
+        <li class="list-item" id="toast-button">
+          <div class="list-item-content">
+            <a href="#toast-button" class="list-item-text">
+              <span class="item-filter-text">toast with button</span>
+            </a>
+            <div class="list-item-copy">
+              <a class="list-item-copy-attr" data-original-title="copy to clipboard" data-clipboard-text='data-bs-dismiss="toast"' data-bs-toggle="tooltip" title="CSS class to clipboard">
+                <img src="assets/images/fonts/files.svg" alt="Copy class">
+              </a>
+              <a class="list-item-copy-code" data-original-title="copy snippet to clipboard" data-bs-toggle="tooltip" title="Code snippet to clipboard">
+                <img src="assets/images/fonts/code-slash.svg" alt="Copy code">
+              </a>
+            </div>
+          </div>
+          <div class="code-snippet"><!-- Note: A custom script is used to activate toasts:
+
+var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+var toastList = toastElList.map(function (toastEl) {
+  return new bootstrap.Toast(toastEl, {
+    autohide: false
+  }).show()
+})
+-->
+<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="toast-body">
+    Hello, world! This is a toast message.
+    <div class="mt-2 pt-2 border-top">
+      <button type="button" class="btn btn-primary btn-sm">Take action</button>
+      <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="toast">Close</button>
+    </div>
+  </div>
+</div></div>
+        </li>
+        <li class="list-item" id="toast-primary">
+          <div class="list-item-content">
+            <a href="#toast-primary" class="list-item-text">
+              <span class="item-filter-text">toast bg-{color} text-{color}</span>
+            </a>
+            <div class="list-item-copy">
+              <a class="list-item-copy-attr" data-original-title="copy to clipboard" data-clipboard-text="toast bg-primary text-white" data-bs-toggle="tooltip" title="CSS class to clipboard">
+                <img src="assets/images/fonts/files.svg" alt="Copy class">
+              </a>
+              <a class="list-item-copy-code" data-original-title="copy snippet to clipboard" data-bs-toggle="tooltip" title="Code snippet to clipboard">
+                <img src="assets/images/fonts/code-slash.svg" alt="Copy code">
+              </a>
+            </div>
+          </div>
+          <div class="code-snippet"><!-- Note: A custom script is used to activate toasts:
+
+var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+var toastList = toastElList.map(function (toastEl) {
+  return new bootstrap.Toast(toastEl, {
+    autohide: false
+  }).show()
+})
+-->
+<div class="toast d-flex align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="toast-body">
+    Hello, world! This is a toast message.
+  </div>
+  <button type="button" class="btn-close btn-close-white ms-auto me-2" data-bs-dismiss="toast" aria-label="Close"></button>
+</div></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
