@@ -86,11 +86,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   // On modal close location hash clear
-  // var snippetModal = document.getElementById('modal-snippet')
-  // snippetModal.addEventListener('hidden.bs.modal', function () {
-  //   console.log("object")
-  //   location.hash = ""
-  // })
+  var snippetModal = document.getElementById('modal-snippet')
+  snippetModal.addEventListener('hidden.bs.modal', function (e) {
+    history.replaceState(null, null, ' ');
+    e.preventDefault()
+  })
 
 });
 
@@ -246,12 +246,7 @@ listItemElement.on('click',function(e){
   listItemElement.removeClass("active");
   $this.addClass("active");
 
-  // location.hash = $this.find('.list-item-text').attr("href")
-
-  // if ( $this.find('.list-item-text').attr('href') == location.hash ) {
-  //   e.preventDefault()
-  // }
-
+  window.location = $this.find('.list-item-text').attr("href")
 
   // initialize editor
   var editor = ace.edit("editor");
@@ -277,7 +272,9 @@ listItemElement.on('click',function(e){
 
   // Snippet Modal
   var snippetModal = new bootstrap.Modal(document.getElementById('modal-snippet'),{
-    backdrop: false
+    backdrop: false,
+    keyboard: true,
+    focus: false
   });
   if(!$('#modal-snippet').hasClass("show")){
     snippetModal.show()
@@ -323,14 +320,6 @@ $(document).on('keyup', function(e) {
     }
   }
 });
-
-//---------------------- Initialize Tooltips ----------------------//
-var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-if (tooltipTriggerList) {
-  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-    return new bootstrap.Tooltip(tooltipTriggerEl)
-  })
-}
 
 //---------------------- Initialize Validation ----------------------//
 var forms = document.querySelectorAll('.needs-validation')
