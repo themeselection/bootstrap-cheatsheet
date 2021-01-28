@@ -4,7 +4,10 @@
   margin-bottom: $modal-height;
 }
 #editor, #preview{
-  min-height: $snippet-height;
+  height: $snippet-height;
   margin-top: .75rem;
   border-radius: 5px;
+}
+#preview{
+  overflow: scroll;
 }
