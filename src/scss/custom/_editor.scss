@@ -2,6 +2,7 @@
 .bs-cheatsheet.modal-open{
   overflow: auto;
   margin-bottom: $modal-height;
+  padding-right: 0 !important;
 }
 #editor, #preview{
   height: $snippet-height;
@@ -9,5 +10,5 @@
   border-radius: 5px;
 }
 #preview{
-  overflow: scroll;
+  overflow: auto;
 }
