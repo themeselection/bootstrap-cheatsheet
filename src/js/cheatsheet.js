@@ -148,6 +148,24 @@ function shuffleCategory() {
   shuffleInstance.filter();
 }
 
+
+//---------------------- Initialize Validation ----------------------//
+function validationOnModal(){
+  var forms = document.querySelectorAll('.needs-validation')
+  Array.prototype.slice.call(forms)
+  .forEach(function (form) {
+    form.addEventListener('submit', function (event) {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+}
+
+
 // --------------------- on hover ------------------//
 
 $('.list-item').on('mouseleave', function(e){
@@ -214,6 +232,35 @@ $('.list-item').on('mouseenter', function(e){
       return new bootstrap.Tooltip(tooltipTriggerEl)
     })
   }
+
+  //---------------------- Initialize Validation ----------------------//
+
+  validationOnModal();
+
+  // var forms = document.querySelectorAll('.needs-validation')
+  // Array.prototype.slice.call(forms)
+  // .forEach(function (form) {
+  //   form.addEventListener('submit', function (event) {
+  //     if (!form.checkValidity()) {
+  //       event.preventDefault()
+  //       event.stopPropagation()
+  //     }
+  //     form.classList.add('was-validated')
+  //   }, false)
+  // })
+
+  var forms = document.querySelectorAll('.needs-validation1')
+  Array.prototype.slice.call(forms)
+  .forEach(function (form) {
+    form.addEventListener('submit', function (event) {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+      form.classList.add('was-validated')
+    }, false)
+  })
+
 })
 
 
@@ -320,17 +367,3 @@ $(document).on('keyup', function(e) {
     }
   }
 });
-
-//---------------------- Initialize Validation ----------------------//
-var forms = document.querySelectorAll('.needs-validation')
-Array.prototype.slice.call(forms)
-  .forEach(function (form) {
-    form.addEventListener('submit', function (event) {
-      if (!form.checkValidity()) {
-        event.preventDefault()
-        event.stopPropagation()
-      }
-
-      form.classList.add('was-validated')
-    }, false)
-  })
