@@ -280,8 +280,7 @@ copySnippet.on('click', function (e) {
 
 //---------------------- ListItem Click ----------------------//
 
-var listItemElement = $('.list-item');
-
+var listItemElement = $('.list-item'), snippetModal;
 // On click of list item
 listItemElement.on('click',function(e){
 
@@ -318,14 +317,16 @@ listItemElement.on('click',function(e){
   editor.on("input", updateCodeSnippet);
 
   // Snippet Modal
-  var snippetModal = new bootstrap.Modal(document.getElementById('modal-snippet'),{
+  snippetModal = new bootstrap.Modal(document.getElementById('modal-snippet'),{
     backdrop: false,
     keyboard: true,
     focus: false
   });
+
   if(!$('#modal-snippet').hasClass("show")){
-    snippetModal.show()
+    snippetModal.show();
   }
+
 })
 
 // Hash link redirection
@@ -355,15 +356,34 @@ $('.next').on('click', function(){
   }
 });
 
+// TODO : Mona
+// var myModalEl = document.getElementById('modal-snippet')
+// if(!$('#modal-snippet').hasClass("show")){
+//   console.log("inn")
+//   myModalEl.modal(hide);
+// }
+// myModalEl.addEventListener('hidePrevented.bs.modal', function (event) {
+//   // do something...
+//   // myModalEl.hide()
+// })
+
 $(document).on('keyup', function(e) {
   if($('body').hasClass('modal-open')){
     var key = e.keyCode || e.charCode || e.which;
     switch (key) {
-    case 37:
-      $('.prev').trigger('click');
-      break;
-    case 39:
-      $('.next').trigger('click');
+      case 27:
+        // console.log("object")
+        // var modalEle = new bootstrap.Modal(document.getElementById("modal-snippet"));
+        // console.log(modalEle)
+        // modalEle.hide()
+        console.log(snippetModal)
+        snippetModal.hide()
+        break;
+      case 37:
+        $('.prev').trigger('click');
+        break;
+      case 39:
+        $('.next').trigger('click');
     }
   }
 });
