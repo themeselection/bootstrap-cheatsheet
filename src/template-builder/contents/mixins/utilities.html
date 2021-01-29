@@ -1,0 +1,66 @@
+<div class="col-md-6 col-lg-4 category">
+  <div class="card">
+    <div class="card-header" data-bs-toggle="collapse" href="#categoryUtilities" role="button" aria-expanded="false" aria-controls="categoryUtilities">
+      <span class="item-filter-text">Utilities</span>
+    </div>
+    <div class="card-body collapse show" id="categoryUtilities">
+      <ul class="list-items">
+        <li class="list-item list-item-bs-new" id="generate-utility">
+          <div class="list-item-content">
+            <a href="#generate-utility" class="list-item-text">
+              <span class="item-filter-text">generate-utility</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin generate-utility($utility, $infix, $is-rfs-media-query: false)</div>
+<div class="code-snippet-full">@mixin generate-utility($utility, $infix, $is-rfs-media-query: false) {
+  $values: map-get($utility, values);
+  @if type-of($values) == "string" or type-of(nth($values, 1)) != "list" {
+    $values: zip($values, $values);
+  }
+  @each $key, $value in $values {
+    $properties: map-get($utility, property);
+    @if type-of($properties) == "string" {
+      $properties: append((), $properties);
+    }
+    $property-class: if(map-has-key($utility, class), map-get($utility, class), nth($properties, 1));
+    $property-class: if($property-class == null, "", $property-class);
+    $state: if(map-has-key($utility, state), map-get($utility, state), ());
+    $infix: if($property-class == "" and str-slice($infix, 1, 1) == "-", str-slice($infix, 2), $infix);
+    $property-class-modifier: if($key, if($property-class == "" and $infix == "", "", "-") + $key, "");
+    @if map-get($utility, rfs) {
+      @if $is-rfs-media-query {
+        $val: rfs-value($value);
+        $value: if($val == rfs-fluid-value($value), null, $val);
+      }
+      @else {
+        $value: rfs-fluid-value($value);
+      }
+    }
+    $is-rtl: map-get($utility, rtl);
+    @if $value != null {
+      @if $is-rtl == false {
+        /* rtl:begin:remove */
+      }
+      .#{$property-class + $infix + $property-class-modifier} {
+        @each $property in $properties {
+          #{$property}: $value if($enable-important-utilities, !important, null);
+        }
+      }
+      @each $pseudo in $state {
+        .#{$property-class + $infix + $property-class-modifier}-#{$pseudo}:#{$pseudo} {
+          @each $property in $properties {
+            #{$property}: $value if($enable-important-utilities, !important, null);
+          }
+        }
+      }
+      @if $is-rtl == false {
+        /* rtl:end:remove */
+      }
+    }
+  }
+}</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,98 @@
+<div class="col-md-6 col-lg-4 category">
+  <div class="card">
+    <div class="card-header" data-bs-toggle="collapse" href="#categoryBreakpoints" role="button" aria-expanded="false" aria-controls="categoryBreakpoints">
+      <span class="item-filter-text">Breakpoints</span>
+    </div>
+    <div class="card-body collapse show" id="categoryBreakpoints">
+      <ul class="list-items">
+        <li class="list-item" id="media-breakpoint-up">
+          <div class="list-item-content">
+            <a href="#media-breakpoint-up" class="list-item-text">
+              <span class="item-filter-text">media-breakpoint-up</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints)</div>
+<div class="code-snippet-full">@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}</div>
+        </li>
+        <li class="list-item" id="media-breakpoint-down">
+          <div class="list-item-content">
+            <a href="#media-breakpoint-down" class="list-item-text">
+              <span class="item-filter-text">media-breakpoint-down</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints)</div>
+<div class="code-snippet-full">@mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
+  $max: breakpoint-max($name, $breakpoints);
+  @if $max {
+    @media (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}</div>
+        </li>
+        <li class="list-item" id="media-breakpoint-between">
+          <div class="list-item-content">
+            <a href="#media-breakpoint-between" class="list-item-text">
+              <span class="item-filter-text">media-breakpoint-between</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin media-breakpoint-between($lower, $upper, $breakpoints: $grid-breakpoints)</div>
+<div class="code-snippet-full">@mixin media-breakpoint-between($lower, $upper, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($lower, $breakpoints);
+  $max: breakpoint-max($upper, $breakpoints);
+  @if $min != null and $max != null {
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else if $max == null {
+    @include media-breakpoint-up($lower, $breakpoints) {
+      @content;
+    }
+  } @else if $min == null {
+    @include media-breakpoint-down($upper, $breakpoints) {
+      @content;
+    }
+  }
+}</div>
+        </li>
+        <li class="list-item" id="media-breakpoint-only">
+          <div class="list-item-content">
+            <a href="#media-breakpoint-only" class="list-item-text">
+              <span class="item-filter-text">media-breakpoint-only</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin media-breakpoint-only($name, $breakpoints: $grid-breakpoints)</div>
+<div class="code-snippet-full">@mixin media-breakpoint-only($name, $breakpoints: $grid-breakpoints) {
+  $min:  breakpoint-min($name, $breakpoints);
+  $next: breakpoint-next($name, $breakpoints);
+  $max:  breakpoint-max($next);
+  @if $min != null and $max != null {
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else if $max == null {
+    @include media-breakpoint-up($name, $breakpoints) {
+      @content;
+    }
+  } @else if $min == null {
+    @include media-breakpoint-down($next, $breakpoints) {
+      @content;
+    }
+  }
+}</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

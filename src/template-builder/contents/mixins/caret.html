@@ -1,0 +1,106 @@
+<div class="col-md-6 col-lg-4 category">
+  <div class="card">
+    <div class="card-header" data-bs-toggle="collapse" href="#categoryCaret" role="button" aria-expanded="false" aria-controls="categoryCaret">
+      <span class="item-filter-text">Caret</span>
+    </div>
+    <div class="card-body collapse show" id="categoryCaret">
+      <ul class="list-items">
+        <li class="list-item" id="caret-down">
+          <div class="list-item-content">
+            <a href="#caret-down" class="list-item-text">
+              <span class="item-filter-text">caret-down</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin caret-down</div>
+<div class="code-snippet-full">@mixin caret-down {
+  border-top: $caret-width solid;
+  border-right: $caret-width solid transparent;
+  border-bottom: 0;
+  border-left: $caret-width solid transparent;
+}</div>
+        </li>
+        <li class="list-item" id="caret-up">
+          <div class="list-item-content">
+            <a href="#caret-up" class="list-item-text">
+              <span class="item-filter-text">caret-up</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin caret-up</div>
+<div class="code-snippet-full">@mixin caret-up {
+  border-top: 0;
+  border-right: $caret-width solid transparent;
+  border-bottom: $caret-width solid;
+  border-left: $caret-width solid transparent;
+}</div>
+        </li>
+        <li class="list-item" id="caret-end">
+          <div class="list-item-content">
+            <a href="#caret-end" class="list-item-text">
+              <span class="item-filter-text">caret-end</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin caret-end</div>
+<div class="code-snippet-full">@mixin caret-end {
+  border-top: $caret-width solid transparent;
+  border-right: 0;
+  border-bottom: $caret-width solid transparent;
+  border-left: $caret-width solid;
+}</div>
+        </li>
+        <li class="list-item" id="caret-start">
+          <div class="list-item-content">
+            <a href="#caret-start" class="list-item-text">
+              <span class="item-filter-text">caret-start</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin caret-start</div>
+<div class="code-snippet-full">@mixin caret-start {
+  border-top: $caret-width solid transparent;
+  border-right: $caret-width solid;
+  border-bottom: $caret-width solid transparent;
+}</div>
+        </li>
+        <li class="list-item" id="caret">
+          <div class="list-item-content">
+            <a href="#caret" class="list-item-text">
+              <span class="item-filter-text">caret</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin caret($direction: down)</div>
+<div class="code-snippet-full">@mixin caret($direction: down) {
+  @if $enable-caret {
+    &::after {
+      display: inline-block;
+      margin-left: $caret-spacing;
+      vertical-align: $caret-vertical-align;
+      content: "";
+      @if $direction == down {
+        @include caret-down();
+      } @else if $direction == up {
+        @include caret-up();
+      } @else if $direction == end {
+        @include caret-end();
+      }
+    }
+    @if $direction == start {
+      &::after {
+        display: none;
+      }
+      &::before {
+        display: inline-block;
+        margin-right: $caret-spacing;
+        vertical-align: $caret-vertical-align;
+        content: "";
+        @include caret-start();
+      }
+    }
+    &:empty::after {
+      margin-left: 0;
+    }
+  }
+}</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

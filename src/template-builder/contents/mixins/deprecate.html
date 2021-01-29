@@ -1,0 +1,24 @@
+<div class="col-md-6 col-lg-4 category">
+  <div class="card">
+    <div class="card-header" data-bs-toggle="collapse" href="#categoryDeprecate" role="button" aria-expanded="false" aria-controls="categoryDeprecate">
+      <span class="item-filter-text">Deprecate</span>
+    </div>
+    <div class="card-body collapse show" id="categoryDeprecate">
+      <ul class="list-items">
+        <li class="list-item" id="deprecate">
+          <div class="list-item-content">
+            <a href="#deprecate" class="list-item-text">
+              <span class="item-filter-text">deprecate</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin deprecate($name, $deprecate-version, $remove-version, $ignore-warning: false)</div>
+<div class="code-snippet-full">@mixin deprecate($name, $deprecate-version, $remove-version, $ignore-warning: false) {
+  @if ($enable-deprecation-messages != false and $ignore-warning != true) {
+    @warn "#{$name} has been deprecated as of #{$deprecate-version}. It will be removed entirely in #{$remove-version}.";
+  }
+}</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

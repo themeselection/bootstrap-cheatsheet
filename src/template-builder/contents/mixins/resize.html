@@ -1,0 +1,23 @@
+<div class="col-md-6 col-lg-4 category">
+  <div class="card">
+    <div class="card-header" data-bs-toggle="collapse" href="#categoryResize" role="button" aria-expanded="false" aria-controls="categoryResize">
+      <span class="item-filter-text">Resize</span>
+    </div>
+    <div class="card-body collapse show" id="categoryResize">
+      <ul class="list-items">
+        <li class="list-item" id="resizable">
+          <div class="list-item-content">
+            <a href="#resizable" class="list-item-text">
+              <span class="item-filter-text">resizable</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin resizable($direction)</div>
+<div class="code-snippet-full">@mixin resizable($direction) {
+  overflow: auto;
+  resize: $direction;
+}</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

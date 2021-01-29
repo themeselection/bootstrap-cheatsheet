@@ -1,0 +1,102 @@
+<div class="col-md-6 col-lg-4 category">
+  <div class="card">
+    <div class="card-header" data-bs-toggle="collapse" href="#categoryGradients" role="button" aria-expanded="false" aria-controls="categoryGradients">
+      <span class="item-filter-text">Gradients</span>
+    </div>
+    <div class="card-body collapse show" id="categoryGradients">
+      <ul class="list-items">
+        <li class="list-item" id="gradient-bg">
+          <div class="list-item-content">
+            <a href="#gradient-bg" class="list-item-text">
+              <span class="item-filter-text">gradient-bg</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin gradient-bg($color: null)</div>
+<div class="code-snippet-full">@mixin gradient-bg($color: null) {
+  background-color: $color;
+  @if $enable-gradients {
+    background-image: var(--#{$variable-prefix}gradient);
+  }
+}</div>
+        </li>
+        <li class="list-item" id="gradient-x">
+          <div class="list-item-content">
+            <a href="#gradient-x" class="list-item-text">
+              <span class="item-filter-text">gradient-x</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin gradient-x($start-color: $gray-700, $end-color: $gray-800, $start-percent: 0%, $end-percent: 100%)</div>
+<div class="code-snippet-full">@mixin gradient-x($start-color: $gray-700, $end-color: $gray-800, $start-percent: 0%, $end-percent: 100%) {
+  background-image: linear-gradient(to right, $start-color $start-percent, $end-color $end-percent);
+}</div>
+        </li>
+        <li class="list-item" id="gradient-y">
+          <div class="list-item-content">
+            <a href="#gradient-y" class="list-item-text">
+              <span class="item-filter-text">gradient-y</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin gradient-y($start-color: $gray-700, $end-color: $gray-800, $start-percent: null, $end-percent: null)</div>
+<div class="code-snippet-full">@mixin gradient-y($start-color: $gray-700, $end-color: $gray-800, $start-percent: null, $end-percent: null) {
+  background-image: linear-gradient(to bottom, $start-color $start-percent, $end-color $end-percent);
+}</div>
+        </li>
+        <li class="list-item" id="gradient-directional">
+          <div class="list-item-content">
+            <a href="#gradient-directional" class="list-item-text">
+              <span class="item-filter-text">gradient-directional</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin gradient-directional($start-color: $gray-700, $end-color: $gray-800, $deg: 45deg)</div>
+<div class="code-snippet-full">@mixin gradient-directional($start-color: $gray-700, $end-color: $gray-800, $deg: 45deg) {
+  background-image: linear-gradient($deg, $start-color, $end-color);
+}</div>
+        </li>
+        <li class="list-item" id="gradient-x-three-colors">
+          <div class="list-item-content">
+            <a href="#gradient-x-three-colors" class="list-item-text">
+              <span class="item-filter-text">gradient-x-three-colors</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin gradient-x-three-colors($start-color: $blue, $mid-color: $purple, $color-stop: 50%, $end-color: $red)</div>
+<div class="code-snippet-full">@mixin gradient-x-three-colors($start-color: $blue, $mid-color: $purple, $color-stop: 50%, $end-color: $red) {
+  background-image: linear-gradient(to right, $start-color, $mid-color $color-stop, $end-color);
+}</div>
+        </li>
+        <li class="list-item" id="gradient-y-three-colors">
+          <div class="list-item-content">
+            <a href="#gradient-y-three-colors" class="list-item-text">
+              <span class="item-filter-text">gradient-y-three-colors</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin gradient-y-three-colors($start-color: $blue, $mid-color: $purple, $color-stop: 50%, $end-color: $red)</div>
+<div class="code-snippet-full">@mixin gradient-y-three-colors($start-color: $blue, $mid-color: $purple, $color-stop: 50%, $end-color: $red) {
+  background-image: linear-gradient($start-color, $mid-color $color-stop, $end-color);
+}</div>
+        </li>
+        <li class="list-item" id="gradient-radial">
+          <div class="list-item-content">
+            <a href="#gradient-radial" class="list-item-text">
+              <span class="item-filter-text">gradient-radial</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin gradient-radial($inner-color: $gray-700, $outer-color: $gray-800)</div>
+<div class="code-snippet-full">@mixin gradient-radial($inner-color: $gray-700, $outer-color: $gray-800) {
+  background-image: radial-gradient(circle, $inner-color, $outer-color);
+}</div>
+        </li>
+        <li class="list-item" id="gradient-striped">
+          <div class="list-item-content">
+            <a href="#gradient-striped" class="list-item-text">
+              <span class="item-filter-text">gradient-striped</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin gradient-striped($color: rgba($white, .15), $angle: 45deg)</div>
+<div class="code-snippet-full">@mixin gradient-striped($color: rgba($white, .15), $angle: 45deg) {
+  background-image: linear-gradient($angle, $color 25%, transparent 25%, transparent 50%, $color 50%, $color 75%, transparent 75%, transparent);
+}</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

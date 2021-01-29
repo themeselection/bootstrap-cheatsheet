@@ -1,0 +1,26 @@
+<div class="col-md-6 col-lg-4 category">
+  <div class="card">
+    <div class="card-header" data-bs-toggle="collapse" href="#categoryContainer" role="button" aria-expanded="false" aria-controls="categoryContainer">
+      <span class="item-filter-text">Container</span>
+    </div>
+    <div class="card-body collapse show" id="categoryContainer">
+      <ul class="list-items">
+        <li class="list-item" id="make-container">
+          <div class="list-item-content">
+            <a href="#make-container" class="list-item-text">
+              <span class="item-filter-text">make-container</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin make-container($gutter: $container-padding-x)</div>
+<div class="code-snippet-full">@mixin make-container($gutter: $container-padding-x) {
+  width: 100%;
+  padding-right: var(--#{$variable-prefix}gutter-x, #{$gutter});
+  padding-left: var(--#{$variable-prefix}gutter-x, #{$gutter});
+  margin-right: auto;
+  margin-left: auto;
+}</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

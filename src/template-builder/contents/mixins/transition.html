@@ -1,0 +1,41 @@
+<div class="col-md-6 col-lg-4 category">
+  <div class="card">
+    <div class="card-header" data-bs-toggle="collapse" href="#categoryTransition" role="button" aria-expanded="false" aria-controls="categoryTransition">
+      <span class="item-filter-text">Transition</span>
+    </div>
+    <div class="card-body collapse show" id="categoryTransition">
+      <ul class="list-items">
+        <li class="list-item" id="transition">
+          <div class="list-item-content">
+            <a href="#transition" class="list-item-text">
+              <span class="item-filter-text">transition</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin transition($transition...)</div>
+<div class="code-snippet-full">@mixin transition($transition...) {
+  @if length($transition) == 0 {
+    $transition: $transition-base;
+  }
+  @if length($transition) > 1 {
+    @each $value in $transition {
+      @if $value == null or $value == none {
+        @warn "The keyword 'none' or 'null' must be used as a single argument.";
+      }
+    }
+  }
+  @if $enable-transitions {
+    @if nth($transition, 1) != null {
+      transition: $transition;
+    }
+    @if $enable-reduced-motion and nth($transition, 1) != null and nth($transition, 1) != none {
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
+    }
+  }
+}</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

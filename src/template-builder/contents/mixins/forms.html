@@ -1,0 +1,141 @@
+<div class="col-md-6 col-lg-4 category">
+  <div class="card">
+    <div class="card-header" data-bs-toggle="collapse" href="#categoryForms" role="button" aria-expanded="false" aria-controls="categoryForms">
+      <span class="item-filter-text">Forms</span>
+    </div>
+    <div class="card-body collapse show" id="categoryForms">
+      <ul class="list-items">
+        <li class="list-item" id="form-validation-state-selector">
+          <div class="list-item-content">
+            <a href="#form-validation-state-selector" class="list-item-text">
+              <span class="item-filter-text">form-validation-state-selector</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin form-validation-state-selector($state)</div>
+<div class="code-snippet-full">@mixin form-validation-state-selector($state) {
+  @if ($state == "valid" or $state == "invalid") {
+    .was-validated #{if(&, "&", "")}:#{$state},
+    #{if(&, "&", "")}.is-#{$state} {
+      @content;
+    }
+  } @else {
+    #{if(&, "&", "")}.is-#{$state} {
+      @content;
+    }
+  }
+}</div>
+        </li>
+        <li class="list-item" id="form-validation-state">
+          <div class="list-item-content">
+            <a href="#form-validation-state" class="list-item-text">
+              <span class="item-filter-text">form-validation-state</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin form-validation-state(
+  $state,
+  $color,
+  $icon,
+  $tooltip-color: color-contrast($color),
+  $tooltip-bg-color: rgba($color, $form-feedback-tooltip-opacity),
+  $focus-box-shadow: 0 0 0 $input-focus-width rgba($color, $input-btn-focus-color-opacity)
+)</div>
+<div class="code-snippet-full">@mixin form-validation-state(
+  $state,
+  $color,
+  $icon,
+  $tooltip-color: color-contrast($color),
+  $tooltip-bg-color: rgba($color, $form-feedback-tooltip-opacity),
+  $focus-box-shadow: 0 0 0 $input-focus-width rgba($color, $input-btn-focus-color-opacity)
+) {
+  .#{$state}-feedback {
+    display: none;
+    width: 100%;
+    margin-top: $form-feedback-margin-top;
+    @include font-size($form-feedback-font-size);
+    font-style: $form-feedback-font-style;
+    color: $color;
+  }
+  .#{$state}-tooltip {
+    position: absolute;
+    top: 100%;
+    z-index: 5;
+    display: none;
+    max-width: 100%;
+    padding: $form-feedback-tooltip-padding-y $form-feedback-tooltip-padding-x;
+    margin-top: .1rem;
+    @include font-size($form-feedback-tooltip-font-size);
+    line-height: $form-feedback-tooltip-line-height;
+    color: $tooltip-color;
+    background-color: $tooltip-bg-color;
+    @include border-radius($form-feedback-tooltip-border-radius);
+  }
+  @include form-validation-state-selector($state) {
+    ~ .#{$state}-feedback,
+    ~ .#{$state}-tooltip {
+      display: block;
+    }
+  }
+  .form-control {
+    @include form-validation-state-selector($state) {
+      border-color: $color;
+      @if $enable-validation-icons {
+        padding-right: $input-height-inner;
+        background-image: escape-svg($icon);
+        background-repeat: no-repeat;
+        background-position: right $input-height-inner-quarter center;
+        background-size: $input-height-inner-half $input-height-inner-half;
+      }
+      &:focus {
+        border-color: $color;
+        box-shadow: $focus-box-shadow;
+      }
+    }
+  }
+  textarea.form-control {
+    @include form-validation-state-selector($state) {
+      @if $enable-validation-icons {
+        padding-right: $input-height-inner;
+        background-position: top $input-height-inner-quarter right $input-height-inner-quarter;
+      }
+    }
+  }
+  .form-select {
+    @include form-validation-state-selector($state) {
+      border-color: $color;
+      @if $enable-validation-icons {
+        padding-right: $form-select-feedback-icon-padding-end;
+        background-image: escape-svg($form-select-indicator), escape-svg($icon);
+        background-position: $form-select-bg-position, $form-select-feedback-icon-position;
+        background-size: $form-select-bg-size, $form-select-feedback-icon-size;
+      }
+      &:focus {
+        border-color: $color;
+        box-shadow: $focus-box-shadow;
+      }
+    }
+  }
+  .form-check-input {
+    @include form-validation-state-selector($state) {
+      border-color: $color;
+      &:checked {
+        background-color: $color;
+      }
+      &:focus {
+        box-shadow: $focus-box-shadow;
+      }
+      ~ .form-check-label {
+        color: $color;
+      }
+    }
+  }
+  .form-check-inline .form-check-input {
+    ~ .#{$state}-feedback {
+      margin-left: .5em;
+    }
+  }
+}</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

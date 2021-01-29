@@ -1,0 +1,43 @@
+<div class="col-md-6 col-lg-4 category">
+  <div class="card">
+    <div class="card-header" data-bs-toggle="collapse" href="#categoryVisuallyHidden" role="button" aria-expanded="false" aria-controls="categoryVisuallyHidden">
+      <span class="item-filter-text">Visually Hidden</span>
+    </div>
+    <div class="card-body collapse show" id="categoryVisuallyHidden">
+      <ul class="list-items">
+        <li class="list-item list-item-bs-new" id="visually-hidden">
+          <div class="list-item-content">
+            <a href="#visually-hidden" class="list-item-text">
+              <span class="item-filter-text">visually-hidden</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin visually-hidden()</div>
+<div class="code-snippet-full">@mixin visually-hidden() {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}</div>
+        </li>
+        <li class="list-item list-item-bs-new" id="visually-hidden-focusable">
+          <div class="list-item-content">
+            <a href="#visually-hidden-focusable" class="list-item-text">
+              <span class="item-filter-text">visually-hidden-focusable</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin visually-hidden-focusable()</div>
+<div class="code-snippet-full">@mixin visually-hidden-focusable() {
+  &:not(:focus):not(:focus-within) {
+    @include visually-hidden();
+  }
+}</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

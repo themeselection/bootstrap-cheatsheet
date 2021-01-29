@@ -1,0 +1,150 @@
+<div class="col-md-6 col-lg-4 category">
+  <div class="card">
+    <div class="card-header" data-bs-toggle="collapse" href="#categoryGrid" role="button" aria-expanded="false" aria-controls="categoryGrid">
+      <span class="item-filter-text">Grid</span>
+    </div>
+    <div class="card-body collapse show" id="categoryGrid">
+      <ul class="list-items">
+        <li class="list-item" id="make-row">
+          <div class="list-item-content">
+            <a href="#make-row" class="list-item-text">
+              <span class="item-filter-text">make-row</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin make-row($gutter: $grid-gutter-width)</div>
+<div class="code-snippet-full">@mixin make-row($gutter: $grid-gutter-width) {
+  --#{$variable-prefix}gutter-x: #{$gutter};
+  --#{$variable-prefix}gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(var(--#{$variable-prefix}gutter-y) * -1);
+  margin-right: calc(var(--#{$variable-prefix}gutter-x) / -2);
+  margin-left: calc(var(--#{$variable-prefix}gutter-x) / -2);
+}</div>
+        </li>
+        <li class="list-item" id="make-col-ready">
+          <div class="list-item-content">
+            <a href="#make-col-ready" class="list-item-text">
+              <span class="item-filter-text">make-col-ready</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin make-col-ready($gutter: $grid-gutter-width)</div>
+<div class="code-snippet-full">@mixin make-col-ready($gutter: $grid-gutter-width) {
+  box-sizing: if(variable-exists(include-column-box-sizing) and $include-column-box-sizing, border-box, null);
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  padding-right: calc(var(--#{$variable-prefix}gutter-x) / 2);
+  padding-left: calc(var(--#{$variable-prefix}gutter-x) / 2);
+  margin-top: var(--#{$variable-prefix}gutter-y);
+}</div>
+        </li>
+        <li class="list-item" id="make-col">
+          <div class="list-item-content">
+            <a href="#make-col" class="list-item-text">
+              <span class="item-filter-text">make-col</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin make-col($size, $columns: $grid-columns)</div>
+<div class="code-snippet-full">@mixin make-col($size, $columns: $grid-columns) {
+  flex: 0 0 auto;
+  width: percentage($size / $columns);
+}</div>
+        </li>
+        <li class="list-item" id="make-col-auto">
+          <div class="list-item-content">
+            <a href="#make-col-auto" class="list-item-text">
+              <span class="item-filter-text">make-col-auto</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin make-col-auto()</div>
+<div class="code-snippet-full">@mixin make-col-auto() {
+  flex: 0 0 auto;
+  width: auto;
+}</div>
+        </li>
+        <li class="list-item" id="make-col-offset">
+          <div class="list-item-content">
+            <a href="#make-col-offset" class="list-item-text">
+              <span class="item-filter-text">make-col-offset</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin make-col-offset($size, $columns: $grid-columns)</div>
+<div class="code-snippet-full">@mixin make-col-offset($size, $columns: $grid-columns) {
+  $num: $size / $columns;
+  margin-left: if($num == 0, 0, percentage($num));
+}</div>
+        </li>
+        <li class="list-item" id="row-cols">
+          <div class="list-item-content">
+            <a href="#row-cols" class="list-item-text">
+              <span class="item-filter-text">row-cols</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin row-cols($count)</div>
+<div class="code-snippet-full">@mixin row-cols($count) {
+  > * {
+    flex: 0 0 auto;
+    width: 100% / $count;
+  }
+}</div>
+        </li>
+        <li class="list-item" id="make-grid-columns">
+          <div class="list-item-content">
+            <a href="#make-grid-columns" class="list-item-text">
+              <span class="item-filter-text">make-grid-columns</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin make-grid-columns($columns: $grid-columns, $gutter: $grid-gutter-width, $breakpoints: $grid-breakpoints)</div>
+<div class="code-snippet-full">@mixin make-grid-columns($columns: $grid-columns, $gutter: $grid-gutter-width, $breakpoints: $grid-breakpoints) {
+  @each $breakpoint in map-keys($breakpoints) {
+    $infix: breakpoint-infix($breakpoint, $breakpoints);
+    @include media-breakpoint-up($breakpoint, $breakpoints) {
+      .col#{$infix} {
+        flex: 1 0 0%;
+      }
+      .row-cols#{$infix}-auto > * {
+        @include make-col-auto();
+      }
+      @if $grid-row-columns > 0 {
+        @for $i from 1 through $grid-row-columns {
+          .row-cols#{$infix}-#{$i} {
+            @include row-cols($i);
+          }
+        }
+      }
+      .col#{$infix}-auto {
+        @include make-col-auto();
+      }
+      @if $columns > 0 {
+        @for $i from 1 through $columns {
+          .col#{$infix}-#{$i} {
+            @include make-col($i, $columns);
+          }
+        }
+        @for $i from 0 through ($columns - 1) {
+          @if not ($infix == "" and $i == 0) {
+            .offset#{$infix}-#{$i} {
+              @include make-col-offset($i, $columns);
+            }
+          }
+        }
+      }
+      @each $key, $value in $gutters {
+        .g#{$infix}-#{$key},
+        .gx#{$infix}-#{$key} {
+          --#{$variable-prefix}gutter-x: #{$value};
+        }
+        .g#{$infix}-#{$key},
+        .gy#{$infix}-#{$key} {
+          --#{$variable-prefix}gutter-y: #{$value};
+        }
+      }
+    }
+  }
+}</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

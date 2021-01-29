@@ -1,0 +1,135 @@
+<div class="col-md-6 col-lg-4 category">
+  <div class="card">
+    <div class="card-header" data-bs-toggle="collapse" href="#categoryBorderRadius" role="button" aria-expanded="false" aria-controls="categoryBorderRadius">
+      <span class="item-filter-text">Border Radius</span>
+    </div>
+    <div class="card-body collapse show" id="categoryBorderRadius">
+      <ul class="list-items">
+        <li class="list-item" id="border-radius">
+          <div class="list-item-content">
+            <a href="#border-radius" class="list-item-text">
+              <span class="item-filter-text">border-radius</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin border-radius($radius: $border-radius, $fallback-border-radius: false)</div>
+<div class="code-snippet-full">@mixin border-radius($radius: $border-radius, $fallback-border-radius: false) {
+  @if $enable-rounded {
+    border-radius: valid-radius($radius);
+  }
+  @else if $fallback-border-radius != false {
+    border-radius: $fallback-border-radius;
+  }
+}</div>
+        </li>
+        <li class="list-item" id="border-top-radius">
+          <div class="list-item-content">
+            <a href="#border-top-radius" class="list-item-text">
+              <span class="item-filter-text">border-top-radius</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin border-top-radius($radius: $border-radius)</div>
+<div class="code-snippet-full">@mixin border-top-radius($radius: $border-radius) {
+  @if $enable-rounded {
+    border-top-left-radius: valid-radius($radius);
+    border-top-right-radius: valid-radius($radius);
+  }
+}</div>
+        </li>
+        <li class="list-item" id="border-end-radius">
+          <div class="list-item-content">
+            <a href="#border-end-radius" class="list-item-text">
+              <span class="item-filter-text">border-end-radius</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin border-end-radius($radius: $border-radius)</div>
+<div class="code-snippet-full">@mixin border-end-radius($radius: $border-radius) {
+  @if $enable-rounded {
+    border-top-right-radius: valid-radius($radius);
+    border-bottom-right-radius: valid-radius($radius);
+  }
+}</div>
+        </li>
+        <li class="list-item" id="border-bottom-radius">
+          <div class="list-item-content">
+            <a href="#border-bottom-radius" class="list-item-text">
+              <span class="item-filter-text">border-bottom-radius</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin border-bottom-radius($radius: $border-radius)</div>
+<div class="code-snippet-full">@mixin border-bottom-radius($radius: $border-radius) {
+  @if $enable-rounded {
+    border-bottom-right-radius: valid-radius($radius);
+    border-bottom-left-radius: valid-radius($radius);
+  }
+}</div>
+        </li>
+        <li class="list-item" id="border-start-radius">
+          <div class="list-item-content">
+            <a href="#border-start-radius" class="list-item-text">
+              <span class="item-filter-text">border-start-radius</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin border-start-radius($radius: $border-radius)</div>
+<div class="code-snippet-full">@mixin border-start-radius($radius: $border-radius) {
+  @if $enable-rounded {
+    border-top-left-radius: valid-radius($radius);
+    border-bottom-left-radius: valid-radius($radius);
+  }
+}</div>
+        </li>
+        <li class="list-item" id="border-top-start-radius">
+          <div class="list-item-content">
+            <a href="#border-top-start-radius" class="list-item-text">
+              <span class="item-filter-text">border-top-start-radius</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin border-top-start-radius($radius: $border-radius)</div>
+<div class="code-snippet-full">@mixin border-top-start-radius($radius: $border-radius) {
+  @if $enable-rounded {
+    border-top-left-radius: valid-radius($radius);
+  }
+}</div>
+        </li>
+        <li class="list-item" id="border-top-end-radius">
+          <div class="list-item-content">
+            <a href="#border-top-end-radius" class="list-item-text">
+              <span class="item-filter-text">border-top-end-radius</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin border-top-end-radius($radius: $border-radius)</div>
+<div class="code-snippet-full">@mixin border-top-end-radius($radius: $border-radius) {
+  @if $enable-rounded {
+    border-top-right-radius: valid-radius($radius);
+  }
+}</div>
+        </li>
+        <li class="list-item" id="border-bottom-end-radius">
+          <div class="list-item-content">
+            <a href="#border-bottom-end-radius" class="list-item-text">
+              <span class="item-filter-text">border-bottom-end-radius</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin border-bottom-end-radius($radius: $border-radius)</div>
+<div class="code-snippet-full">@mixin border-bottom-end-radius($radius: $border-radius) {
+  @if $enable-rounded {
+    border-bottom-right-radius: valid-radius($radius);
+  }
+}</div>
+        </li>
+        <li class="list-item" id="border-bottom-start-radius">
+          <div class="list-item-content">
+            <a href="#border-bottom-start-radius" class="list-item-text">
+              <span class="item-filter-text">border-bottom-start-radius</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin border-bottom-start-radius($radius: $border-radius)</div>
+<div class="code-snippet-full">@mixin border-bottom-start-radius($radius: $border-radius) {
+  @if $enable-rounded {
+    border-bottom-left-radius: valid-radius($radius);
+  }
+}</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

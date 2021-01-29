@@ -1,0 +1,36 @@
+<div class="col-md-6 col-lg-4 category">
+  <div class="card">
+    <div class="card-header" data-bs-toggle="collapse" href="#categoryTable" role="button" aria-expanded="false" aria-controls="categoryTable">
+      <span class="item-filter-text">Table</span>
+    </div>
+    <div class="card-body collapse show" id="categoryTable">
+      <ul class="list-items">
+        <li class="list-item list-item-bs-new" id="table-variant">
+          <div class="list-item-content">
+            <a href="#table-variant" class="list-item-text">
+              <span class="item-filter-text">table-variant</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin table-variant($state, $background)</div>
+<div class="code-snippet-full">@mixin table-variant($state, $background) {
+  .table-#{$state} {
+    $color: color-contrast(opaque($body-bg, $background));
+    $hover-bg: mix($color, $background, percentage($table-hover-bg-factor));
+    $striped-bg: mix($color, $background, percentage($table-striped-bg-factor));
+    $active-bg: mix($color, $background, percentage($table-active-bg-factor));
+    --#{$variable-prefix}table-bg: #{$background};
+    --#{$variable-prefix}table-striped-bg: #{$striped-bg};
+    --#{$variable-prefix}table-striped-color: #{color-contrast($striped-bg)};
+    --#{$variable-prefix}table-active-bg: #{$active-bg};
+    --#{$variable-prefix}table-active-color: #{color-contrast($active-bg)};
+    --#{$variable-prefix}table-hover-bg: #{$hover-bg};
+    --#{$variable-prefix}table-hover-color: #{color-contrast($hover-bg)};
+    color: $color;
+    border-color: mix($color, $background, percentage($table-border-factor));
+  }
+}</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="col-md-6 col-lg-4 category">
+  <div class="card">
+    <div class="card-header" data-bs-toggle="collapse" href="#categoryListGroup" role="button" aria-expanded="false" aria-controls="categoryListGroup">
+      <span class="item-filter-text">List Group</span>
+    </div>
+    <div class="card-body collapse show" id="categoryListGroup">
+      <ul class="list-items">
+        <li class="list-item" id="list-group-item-variant">
+          <div class="list-item-content">
+            <a href="#list-group-item-variant" class="list-item-text">
+              <span class="item-filter-text">list-group-item-variant</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin list-group-item-variant($state, $background, $color)</div>
+<div class="code-snippet-full">@mixin list-group-item-variant($state, $background, $color) {
+  .list-group-item-#{$state} {
+    color: $color;
+    background-color: $background;
+    &.list-group-item-action {
+      &:hover,
+      &:focus {
+        color: $color;
+        background-color: shade-color($background, 10%);
+      }
+      &.active {
+        color: $white;
+        background-color: $color;
+        border-color: $color;
+      }
+    }
+  }
+}</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

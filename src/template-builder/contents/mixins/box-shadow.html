@@ -1,0 +1,35 @@
+<div class="col-md-6 col-lg-4 category">
+  <div class="card">
+    <div class="card-header" data-bs-toggle="collapse" href="#categoryBoxShadow" role="button" aria-expanded="false" aria-controls="categoryBoxShadow">
+      <span class="item-filter-text">Box Shadow</span>
+    </div>
+    <div class="card-body collapse show" id="categoryBoxShadow">
+      <ul class="list-items">
+        <li class="list-item" id="box-shadow">
+          <div class="list-item-content">
+            <a href="#box-shadow" class="list-item-text">
+              <span class="item-filter-text">box-shadow</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin box-shadow($shadow...)</div>
+<div class="code-snippet-full">@mixin box-shadow($shadow...) {
+  @if $enable-shadows {
+    $result: ();
+    @each $value in $shadow {
+      @if $value != null {
+        $result: append($result, $value, "comma");
+      }
+      @if $value == none and length($shadow) > 1 {
+        @warn "The keyword 'none' must be used as a single argument.";
+      }
+    }
+    @if (length($result) > 0) {
+      box-shadow: $result;
+    }
+  }
+}</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

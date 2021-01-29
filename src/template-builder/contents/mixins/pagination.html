@@ -1,0 +1,43 @@
+<div class="col-md-6 col-lg-4 category">
+  <div class="card">
+    <div class="card-header" data-bs-toggle="collapse" href="#categoryPagination" role="button" aria-expanded="false" aria-controls="categoryPagination">
+      <span class="item-filter-text">Pagination</span>
+    </div>
+    <div class="card-body collapse show" id="categoryPagination">
+      <ul class="list-items">
+        <li class="list-item" id="pagination-size">
+          <div class="list-item-content">
+            <a href="#pagination-size" class="list-item-text">
+              <span class="item-filter-text">pagination-size</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin pagination-size($padding-y, $padding-x, $font-size, $border-radius)</div>
+<div class="code-snippet-full">@mixin pagination-size($padding-y, $padding-x, $font-size, $border-radius) {
+  .page-link {
+    padding: $padding-y $padding-x;
+    @include font-size($font-size);
+  }
+  .page-item {
+    @if $pagination-margin-start == (-$pagination-border-width) {
+      &:first-child {
+        .page-link {
+          @include border-start-radius($border-radius);
+        }
+      }
+      &:last-child {
+        .page-link {
+          @include border-end-radius($border-radius);
+        }
+      }
+    } @else {
+      .page-link {
+        @include border-radius($border-radius);
+      }
+    }
+  }
+}</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

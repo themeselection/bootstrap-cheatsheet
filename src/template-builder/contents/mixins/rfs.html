@@ -1,0 +1,243 @@
+<div class="col-md-6 col-lg-4 category">
+  <div class="card">
+    <div class="card-header" data-bs-toggle="collapse" href="#categoryRFS" role="button" aria-expanded="false" aria-controls="categoryRFS">
+      <span class="item-filter-text">RFS</span>
+    </div>
+    <div class="card-body collapse show" id="categoryRFS">
+      <ul class="list-items">
+        <li class="list-item list-item-bs-new" id="rfs-media-query">
+          <div class="list-item-content">
+            <a href="#rfs-media-query" class="list-item-text">
+              <span class="item-filter-text">_rfs-media-query</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin _rfs-media-query</div>
+<div class="code-snippet-full">@mixin _rfs-media-query {
+  @if $rfs-two-dimensional {
+    @if $rfs-mode == max-media-query {
+      @media (#{$rfs-mq-property-width}: #{$rfs-mq-value}), (#{$rfs-mq-property-height}: #{$rfs-mq-value}) {
+        @content;
+      }
+    }
+    @else {
+      @media (#{$rfs-mq-property-width}: #{$rfs-mq-value}) and (#{$rfs-mq-property-height}: #{$rfs-mq-value}) {
+        @content;
+      }
+    }
+  }
+  @else {
+    @media (#{$rfs-mq-property-width}: #{$rfs-mq-value}) {
+      @content;
+    }
+  }
+}</div>
+        </li>
+        <li class="list-item list-item-bs-new" id="rfs-rule">
+          <div class="list-item-content">
+            <a href="#rfs-rule" class="list-item-text">
+              <span class="item-filter-text">_rfs-rule</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin _rfs-rule</div>
+<div class="code-snippet-full">@mixin _rfs-rule {
+  @if $rfs-class == disable and $rfs-mode == max-media-query {
+    &,
+    .disable-rfs &,
+    &.disable-rfs {
+      @content;
+    }
+  }
+  @else if $rfs-class == enable and $rfs-mode == min-media-query {
+    .enable-rfs &,
+    &.enable-rfs {
+      @content;
+    }
+  }
+  @else {
+    @content;
+  }
+}</div>
+        </li>
+        <li class="list-item list-item-bs-new" id="rfs-media-query-rule">
+          <div class="list-item-content">
+            <a href="#rfs-media-query-rule" class="list-item-text">
+              <span class="item-filter-text">_rfs-media-query-rule</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin _rfs-media-query-rule</div>
+<div class="code-snippet-full">@mixin _rfs-media-query-rule {
+  @if $rfs-class == enable {
+    @if $rfs-mode == min-media-query {
+      @content;
+    }
+    @include _rfs-media-query {
+      .enable-rfs &,
+      &.enable-rfs {
+        @content;
+      }
+    }
+  }
+  @else {
+    @if $rfs-class == disable and $rfs-mode == min-media-query {
+      .disable-rfs &,
+      &.disable-rfs {
+        @content;
+      }
+    }
+    @include _rfs-media-query {
+      @content;
+    }
+  }
+}</div>
+        </li>
+        <li class="list-item" id="rfs">
+          <div class="list-item-content">
+            <a href="#rfs" class="list-item-text">
+              <span class="item-filter-text">rfs</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin rfs($values, $property: font-size)</div>
+<div class="code-snippet-full">@mixin rfs($values, $property: font-size) {
+  @if $values != null {
+    $val: rfs-value($values);
+    $fluidVal: rfs-fluid-value($values);
+    @if $val == $fluidVal {
+      #{$property}: $val;
+    }
+    @else {
+      @include _rfs-rule {
+        #{$property}: if($rfs-mode == max-media-query, $val, $fluidVal);
+        min-width: if($rfs-safari-iframe-resize-bug-fix, (0 * 1vw), null);
+      }
+      @include _rfs-media-query-rule {
+        #{$property}: if($rfs-mode == max-media-query, $fluidVal, $val);
+      }
+    }
+  }
+}</div>
+        </li>
+        <li class="list-item" id="font-size">
+          <div class="list-item-content">
+            <a href="#font-size" class="list-item-text">
+              <span class="item-filter-text">font-size</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin font-size($value)</div>
+<div class="code-snippet-full">@mixin font-size($value) {
+  @include rfs($value);
+}</div>
+        </li>
+        <li class="list-item list-item-bs-new" id="padding">
+          <div class="list-item-content">
+            <a href="#padding" class="list-item-text">
+              <span class="item-filter-text">padding</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin padding($value)</div>
+<div class="code-snippet-full">@mixin padding($value) {
+  @include rfs($value, padding);
+}</div>
+        </li>
+        <li class="list-item list-item-bs-new" id="padding-top">
+          <div class="list-item-content">
+            <a href="#padding-top" class="list-item-text">
+              <span class="item-filter-text">padding-top</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin padding-top($value)</div>
+<div class="code-snippet-full">@mixin padding-top($value) {
+  @include rfs($value, padding-top);
+}</div>
+        </li>
+        <li class="list-item list-item-bs-new" id="padding-right">
+          <div class="list-item-content">
+            <a href="#padding-right" class="list-item-text">
+              <span class="item-filter-text">padding-right</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin padding-right($value)</div>
+<div class="code-snippet-full">@mixin padding-right($value) {
+  @include rfs($value, padding-right);
+}</div>
+        </li>
+        <li class="list-item list-item-bs-new" id="padding-bottom">
+          <div class="list-item-content">
+            <a href="#padding-bottom" class="list-item-text">
+              <span class="item-filter-text">padding-bottom</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin padding-bottom($value)</div>
+<div class="code-snippet-full">@mixin padding-bottom($value) {
+  @include rfs($value, padding-bottom);
+}</div>
+        </li>
+        <li class="list-item list-item-bs-new" id="padding-left">
+          <div class="list-item-content">
+            <a href="#padding-left" class="list-item-text">
+              <span class="item-filter-text">padding-left</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin padding-left($value)</div>
+<div class="code-snippet-full">@mixin padding-left($value) {
+  @include rfs($value, padding-left);
+}</div>
+        </li>
+        <li class="list-item list-item-bs-new" id="margin">
+          <div class="list-item-content">
+            <a href="#margin" class="list-item-text">
+              <span class="item-filter-text">margin</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin margin($value)</div>
+<div class="code-snippet-full">@mixin margin($value) {
+  @include rfs($value, margin);
+}</div>
+        </li>
+        <li class="list-item list-item-bs-new" id="margin-top">
+          <div class="list-item-content">
+            <a href="#margin-top" class="list-item-text">
+              <span class="item-filter-text">margin-top</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin margin-top($value)</div>
+<div class="code-snippet-full">@mixin margin-top($value) {
+  @include rfs($value, margin-top);
+}</div>
+        </li>
+        <li class="list-item list-item-bs-new" id="margin-right">
+          <div class="list-item-content">
+            <a href="#margin-right" class="list-item-text">
+              <span class="item-filter-text">margin-right</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin margin-right($value)</div>
+<div class="code-snippet-full">@mixin margin-right($value) {
+  @include rfs($value, margin-right);
+}</div>
+        </li>
+        <li class="list-item list-item-bs-new" id="margin-bottom">
+          <div class="list-item-content">
+            <a href="#margin-bottom" class="list-item-text">
+              <span class="item-filter-text">margin-bottom</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin margin-bottom($value)</div>
+<div class="code-snippet-full">@mixin margin-bottom($value) {
+  @include rfs($value, margin-bottom);
+}</div>
+        </li>
+        <li class="list-item list-item-bs-new" id="margin-left">
+          <div class="list-item-content">
+            <a href="#margin-left" class="list-item-text">
+              <span class="item-filter-text">margin-left</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin margin-left($value)</div>
+<div class="code-snippet-full">@mixin margin-left($value) {
+  @include rfs($value, margin-left);
+}</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

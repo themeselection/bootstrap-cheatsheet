@@ -1,0 +1,27 @@
+<div class="col-md-6 col-lg-4 category">
+  <div class="card">
+    <div class="card-header" data-bs-toggle="collapse" href="#categoryAlert" role="button" aria-expanded="false" aria-controls="categoryAlert">
+      <span class="item-filter-text">Alert</span>
+    </div>
+    <div class="card-body collapse show" id="categoryAlert">
+      <ul class="list-items">
+        <li class="list-item" id="alert-variant">
+          <div class="list-item-content">
+            <a href="#alert-variant" class="list-item-text">
+              <span class="item-filter-text">alert-variant</span>
+            </a>
+          </div>
+<div class="code-snippet">@mixin alert-variant($background, $border, $color)</div>
+<div class="code-snippet-full">@mixin alert-variant($background, $border, $color) {
+  color: $color;
+  @include gradient-bg($background);
+  border-color: $border;
+  .alert-link {
+    color: shade-color($color, 20%);
+  }
+}</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
