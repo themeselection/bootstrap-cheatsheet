@@ -7,6 +7,10 @@ extend ../base
 
 block pageVars
   - var pageTitle    = "Variables"
+  - var bodyCustomClass   = "bs-variables"
 
 block content
   include ../contents/variables/alerts.html
+
+
+  include ../contents/snippet-mixins-vars.html
