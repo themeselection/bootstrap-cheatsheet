@@ -1,3 +1,5 @@
+- var bodyCustomClass         = ''
+
 doctype html
 html
     // BEGIN: Head
@@ -9,7 +11,7 @@ html
     // END: Head
     = '\n'
     // BEGIN: Body
-    body.bs-cheatsheet
+    body.bs-cheatsheet(class=bodyCustomClass)
         // BEGIN: Header
         block header
           include partials/header.html

@@ -56,7 +56,8 @@
   // Modal Body area
   .modal-body{
     background-color: $modal-bg-color;
-    .copy-snippet-code{
+    .copy-snippet-code,
+    .copy-info-code{
       cursor: pointer;
       position: absolute;
       top: -2px;

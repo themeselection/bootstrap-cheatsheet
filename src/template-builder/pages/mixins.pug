@@ -6,7 +6,10 @@
 extend ../base
 
 block pageVars
-  - var pageTitle    = "Mixins"
+  - var pageTitle         = "Mixins"
+  - var bodyCustomClass   = "bs-mixins"
 
 block content
   include ../contents/mixins/alerts.html
+
+  include ../contents/snippet-mixins-vars.html
