@@ -148,7 +148,6 @@ function shuffleCategory() {
   shuffleInstance.filter();
 }
 
-
 //---------------------- Initialize Validation ----------------------//
 function validationOnModal(){
   var forms = document.querySelectorAll('.needs-validation')
@@ -159,12 +158,32 @@ function validationOnModal(){
         event.preventDefault()
         event.stopPropagation()
       }
+      form.classList.add('was-validated')
+    }, false)
+  })
 
+  var forms = document.querySelectorAll('.needs-validation1')
+  Array.prototype.slice.call(forms)
+  .forEach(function (form) {
+    form.addEventListener('submit', function (event) {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
       form.classList.add('was-validated')
     }, false)
   })
 }
 
+//---------------------- Initialize Tooltips ----------------------//
+function tooltipOnModal(){
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+  if (tooltipTriggerList) {
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+  }
+}
 
 // --------------------- on hover ------------------//
 
@@ -250,15 +269,7 @@ $('.list-item').on('mouseenter', function(e){
     copyToClipboard(codeSnippet);
   });
 
-  //---------------------- Initialize Tooltips ----------------------//
-  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-  if (tooltipTriggerList) {
-    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-      return new bootstrap.Tooltip(tooltipTriggerEl)
-    })
-  }
-
-  //---------------------- Initialize Validation ----------------------//
+  tooltipOnModal()
 
   // validationOnModal();
 
@@ -386,7 +397,13 @@ listItemElement.on('click',function(e){
     snippetModal.show();
   }
 
+  // Method Calls for modal previews
+  validationOnModal();
+  tooltipOnModal();
+
 })
+
+
 
 // Hash link redirection
 function directHashLinkRedirect(){
