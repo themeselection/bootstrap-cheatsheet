@@ -29,7 +29,7 @@
         }
       }
       .card-body{
-        padding:16px 0;
+        padding:6px 0;
       }
       // list of categories
       .list-items{
@@ -38,11 +38,11 @@
         // each list item of categories
         .list-item{
           list-style: none;
-          min-height: 36px;
+          min-height: 32px;
           a.list-item-text{
-            padding: 6px 18px;
+            padding: 4px 56px 4px 18px;
             color: $item-color;
-            font-weight: 500;
+            font-weight: 400;
             flex-grow: 1;
             text-decoration: none;
           }
@@ -53,6 +53,8 @@
             }
             .list-item-copy{
               display: flex;
+              position: absolute;
+              right: 0;
             }
           }
           &.active{
@@ -67,7 +69,7 @@
             align-items: center;
           }
           .list-item-copy{
-            padding: 6px 6px 6px 0;
+            padding: 4px 4px 4px 0;
             display: none;
             a{
               padding-right: 9px;
@@ -84,6 +86,7 @@
       }
     }
   }
+  // New in Bootstrap 5 highlight style
   &.show-highlight{
     .category .card .list-items .list-item{
       &.list-item-bs-new{
@@ -100,11 +103,7 @@
 .collapse, .collapsing{
   transition: none !important;
 }
-
-// New in bootstrap 5 highlight
-// .show-highlight .list-item-bs-new{
-//   background-color: $highlight-new-bg-color;
-//   a{
-//     color: $white;
-//   }
-// }
+// Variable page specific style
+.bs-cheatsheet.bs-variables .category .card .list-items .list-item a.list-item-text{
+  padding-right: 32px;
+}

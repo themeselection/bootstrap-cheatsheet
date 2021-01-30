@@ -77,6 +77,10 @@
     padding: 1.5rem;
   }
 }
+// Variable page specific style
+.bs-variables #modal-snippet .modal-dialog.modal-fullscreen {
+  max-height: $modal-variable-height;
+}
 
 @include media-breakpoint-down(sm) {
   #modal-snippet .modal-header .snippet-title{

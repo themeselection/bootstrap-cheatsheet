@@ -4,6 +4,7 @@
   margin-bottom: $modal-height;
   padding-right: 0 !important;
 }
+// Preview Editors style
 #editor, #preview, #preview-editor{
   height: $snippet-height;
   margin-top: .75rem;
@@ -11,4 +12,10 @@
 }
 #preview{
   overflow: auto;
+}
+// Variable page specific style
+.bs-variables{
+  #editor, #preview-editor{
+    height: $snippet-variable-height;
+  }
 }

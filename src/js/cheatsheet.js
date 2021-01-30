@@ -84,14 +84,12 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   }
 
-
-  // On modal close location hash clear
+  // On modal close location hash clear
   var snippetModal = document.getElementById('modal-snippet')
   snippetModal.addEventListener('hidden.bs.modal', function (e) {
     history.replaceState(null, null, ' ');
     e.preventDefault()
   })
-
 });
 
 //---------------------- Actions ----------------------//
@@ -185,6 +183,16 @@ function tooltipOnModal(){
   }
 }
 
+//---------------------- Initialize Popovers ----------------------//
+function popoverOnModal(){
+  var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+  var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+    var popOverEle = new bootstrap.Popover(popoverTriggerEl)
+    popOverEle.toggleEnabled()
+  })
+  console.log(popoverList)
+}
+
 // --------------------- on hover ------------------//
 
 $('.list-item').on('mouseleave', function(e){
@@ -270,7 +278,7 @@ $('.list-item').on('mouseenter', function(e){
   });
 
   tooltipOnModal()
-
+  popoverOnModal()
   // validationOnModal();
 
   var forms = document.querySelectorAll('.needs-validation')
@@ -399,6 +407,7 @@ listItemElement.on('click',function(e){
 
   // Method Calls for modal previews
   validationOnModal();
+  popoverOnModal()
   tooltipOnModal();
 
 })
