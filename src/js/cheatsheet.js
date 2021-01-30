@@ -92,6 +92,10 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 });
 
+// On windows location/hash change
+$(window).on('hashchange', function(e){
+  directHashLinkRedirect()
+});
 //---------------------- Actions ----------------------//
 // highlight New
 // collapse
@@ -188,9 +192,8 @@ function popoverOnModal(){
   var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
   var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
     var popOverEle = new bootstrap.Popover(popoverTriggerEl)
-    popOverEle.toggleEnabled()
+    // popoverTriggerEl.toggleEnabled()
   })
-  console.log(popoverList)
 }
 
 // --------------------- on hover ------------------//
@@ -342,6 +345,14 @@ copyContent.on('click', function (e) {
 //---------------------- ListItem Click ----------------------//
 
 var listItemElement = $('.list-item'), snippetModal;
+
+// Snippet Modal
+snippetModal = new bootstrap.Modal(document.getElementById('modal-snippet'),{
+  backdrop: false,
+  keyboard: true,
+  focus: false
+});
+
 // On click of list item
 listItemElement.on('click',function(e){
 
@@ -389,13 +400,6 @@ listItemElement.on('click',function(e){
   // Update preview on editor input change
   editor.on("input", updateCodeSnippet);
 
-  // Snippet Modal
-  snippetModal = new bootstrap.Modal(document.getElementById('modal-snippet'),{
-    backdrop: false,
-    keyboard: true,
-    focus: false
-  });
-
   if(!$('#modal-snippet').hasClass("show")){
     // Update variable modal titles
     if($("body").hasClass('bs-variables')){
@@ -413,12 +417,13 @@ listItemElement.on('click',function(e){
 })
 
 
-
 // Hash link redirection
 function directHashLinkRedirect(){
   var hashItem= location.hash;
   if(location.hash.length > 0) {
     $(hashItem).trigger('click');
+  }else{
+    snippetModal.hide()
   }
 }
 
@@ -441,27 +446,12 @@ $('.next').on('click', function(){
   }
 });
 
-// TODO : Mona
-// var myModalEl = document.getElementById('modal-snippet')
-// if(!$('#modal-snippet').hasClass("show")){
-//   console.log("inn")
-//   myModalEl.modal(hide);
-// }
-// myModalEl.addEventListener('hidePrevented.bs.modal', function (event) {
-//   // do something...
-//   // myModalEl.hide()
-// })
 
 $(document).on('keyup', function(e) {
   if($('body').hasClass('modal-open')){
     var key = e.keyCode || e.charCode || e.which;
     switch (key) {
       case 27:
-        // console.log("object")
-        // var modalEle = new bootstrap.Modal(document.getElementById("modal-snippet"));
-        // console.log(modalEle)
-        // modalEle.hide()
-        console.log(snippetModal)
         snippetModal.hide()
         break;
       case 37:
