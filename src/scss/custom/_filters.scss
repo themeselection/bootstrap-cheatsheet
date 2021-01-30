@@ -17,6 +17,7 @@
         border-left-width: 0 !important;
         &:focus{
           box-shadow: none;
+          border: 1px solid $cheatsheet-primary;
         }
       }
       .form-control,
@@ -27,22 +28,54 @@
         color: #b9b9c3;
       }
     }
-    .btn-outline-primary{
-      border-color: $cheatsheet-primary;
-      color: $cheatsheet-primary;
-      font-weight: 500;
-      &:hover{
-        color: $cheatsheet-primary;
-        background-color: rgba($cheatsheet-primary,0.08);
+    // Expand / Collapse Button
+    .btn-toggle{
+      .btn-outline-primary{
         border-color: $cheatsheet-primary;
+        color: $cheatsheet-primary;
+        &:hover{
+          color: $cheatsheet-primary;
+          background-color: rgba($cheatsheet-primary,0.08);
+          border-color: $cheatsheet-primary;
+        }
       }
+      .btn-check{
+        &:checked, &:active{
+          + .btn-outline-primary{
+            background-color: $cheatsheet-primary;
+            border-color: $cheatsheet-primary;
+          }
+        }
+      }
+    }
+
+    // Highlight Toggle Button
+    .btn-highlight-toggle{
+      .btn-outline-primary{
+        border-color: $highlight-new-bg-color;
+        color: $highlight-new-bg-color;
+        &:hover{
+          color: $highlight-new-bg-color;
+          background-color: rgba($highlight-new-bg-color,0.08);
+          border-color: $highlight-new-bg-color;
+        }
+      }
+      .btn-check{
+        &:checked, &:active{
+          + .btn-outline-primary{
+            background-color: $highlight-new-bg-color;
+            border-color: $highlight-new-bg-color;
+          }
+        }
+      }
+    }
+    .btn-outline-primary{
+      font-weight: 500;
     }
     .btn-check{
       &:checked, &:active{
         + .btn-outline-primary{
           color: $white;
-          background-color: $cheatsheet-primary;
-          border-color: $cheatsheet-primary;
         }
       }
       &:focus + .btn-outline-primary{
@@ -67,6 +100,6 @@
 }
 @include media-breakpoint-down(md) {
   .bs-cheatsheet .cheatsheet-filters{
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.5rem;
   }
  }

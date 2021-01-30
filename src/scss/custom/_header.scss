@@ -53,5 +53,30 @@
         font-weight: 600;
       }
     }
+    img{
+      max-height: 300px;
+    }
   }
 }
+
+@include media-breakpoint-only(sm) {
+  .bs-cheatsheet .cheatsheet-hero .cheatsheet-infoline span{
+    white-space: nowrap;
+  }
+}
+
+
+
+@include media-breakpoint-only(xs) {
+  .bs-cheatsheet .cheatsheet-hero .cheatsheet-title{
+    font-size: 1.4rem;
+    margin-bottom: .2rem !important;
+  }
+  .bs-cheatsheet .cheatsheet-hero .cheatsheet-subtitle{
+    font-size: .85rem;
+    margin-bottom: 1.5rem;
+  }
+  .bs-cheatsheet .cheatsheet-hero .cheatsheet-infoline{
+    padding: .75rem;
+  }
+ }

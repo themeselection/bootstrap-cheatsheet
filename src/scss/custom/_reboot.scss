@@ -10,14 +10,14 @@ body{
 }
 
 .bs-content{
-  margin-top: 5rem;
-  margin-bottom: 3.5rem;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
 }
 
 
 
 @include media-breakpoint-down(md) {
  .bs-content{
-   margin-top: 2.5rem;
+   margin-top: 2rem;
  }
 }

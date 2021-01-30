@@ -10,16 +10,17 @@
   <!-- <div class="filter-search">
     <input type="text" class="form-control input-search" placeholder='Search...' tabindex='-1'>
   </div> -->
-  <div class="filter-buttons">
-    <div class="btn-group me-3" role="group" aria-label="collapse/expand all">
+  <div class="filter-buttons d-flex">
+    <div class="btn-group btn-toggle me-3" role="group" aria-label="collapse/expand all">
       <input type="radio" class="btn-check" name="collapse-toggle" id="expandAll" autocomplete="off" checked>
       <label class="btn btn-outline-primary" for="expandAll">Expand All</label>
 
       <input type="radio" class="btn-check" name="collapse-toggle" id="collapseAll" autocomplete="off">
       <label class="btn btn-outline-primary" for="collapseAll">Collapse All</label>
     </div>
-
-    <input type="checkbox" class="btn-check" id="btn-toggle-new" autocomplete="off">
-    <label class="btn btn-outline-primary" for="btn-toggle-new">Highlight new in v5</label>
+    <div class="btn-highlight-toggle">
+      <input type="checkbox" class="btn-check" id="btn-toggle-new" autocomplete="off">
+      <label class="btn btn-outline-primary" for="btn-toggle-new">Highlight new in v5</label>
+    </div>
   </div>
 </div>

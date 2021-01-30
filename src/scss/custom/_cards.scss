@@ -84,6 +84,16 @@
       }
     }
   }
+  &.show-highlight{
+    .category .card .list-items .list-item{
+      &.list-item-bs-new{
+        background-color: $highlight-new-bg-color;
+        a{
+          color: $white;
+        }
+      }
+    }
+  }
 }
 
 // card collapse and collapsing transition
@@ -92,6 +102,9 @@
 }
 
 // New in bootstrap 5 highlight
-.show-highlight .list-item-bs-new{
-  background-color: $info;
-}
+// .show-highlight .list-item-bs-new{
+//   background-color: $highlight-new-bg-color;
+//   a{
+//     color: $white;
+//   }
+// }
