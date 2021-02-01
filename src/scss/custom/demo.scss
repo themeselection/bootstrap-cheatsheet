@@ -9,5 +9,33 @@
       position: absolute;
       margin: 0;
     }
+
+    &.dropup-basic .dropup {
+      position: absolute;
+      bottom: 0%;
+      left: 0%;
+      transform: translate(24%, -65%);
+      margin: 0;
+    }
+
+    &.dropup-split .dropup {
+      position: absolute;
+      bottom: 0%;
+      left: 0%;
+      transform: translate(16.5%, -65%);
+      margin: 0;
+    }
+
+    .dropstart {
+      position: absolute;
+      top: 0%;
+      right: 0%;
+      transform: translate(-21.5%, 66%);
+      margin: 0;
+    }
+
+    &.multiple-dropdown-direction .btn-group {
+      margin-left: 5rem;
+    }
   }
 }
