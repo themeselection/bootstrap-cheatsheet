@@ -466,3 +466,18 @@ $(document).on('keyup', function(e) {
     }
   }
 });
+
+// Scroll to top
+$(window).on('scroll', function () {
+  if ($(this).scrollTop() > 500) {
+    $('.scroll-top').fadeIn();
+  } else {
+    $('.scroll-top').fadeOut();
+  }
+});
+$('.scroll-top').on('click', function () {
+  $('html, body').animate({ scrollTop: 0 }, 100);
+  if (snippetModal) {
+    snippetModal.hide();
+  }
+});

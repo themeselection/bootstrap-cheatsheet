@@ -56,4 +56,30 @@
       margin: 0;
     }
   }
+
+  // Scroll to top
+  .scroll-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    background-color: $cheatsheet-primary;
+    border-color: $cheatsheet-primary;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+  &.modal-open {
+    .scroll-top {
+      bottom: 420px;
+    }
+  }
+  &.bs-variables {
+    &.modal-open {
+      .scroll-top {
+        bottom: 320px;
+      }
+    }
+  }
 }
