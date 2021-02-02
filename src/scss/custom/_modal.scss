@@ -8,7 +8,6 @@
   }
   .modal-dialog.modal-fullscreen {
     max-width: 100%;
-    max-height: $modal-height;
     bottom: 0 !important;
     position: absolute;
     left: 0;
@@ -78,8 +77,8 @@
   }
 }
 // Variable page specific style
-.bs-variables #modal-snippet .modal-dialog.modal-fullscreen {
-  max-height: $modal-variable-height;
+.bs-variables #modal-snippet {
+  min-height: $modal-variable-height;
 }
 
 @include media-breakpoint-down(sm) {
