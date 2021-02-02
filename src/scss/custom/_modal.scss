@@ -6,20 +6,20 @@
     min-height: $modal-height;
     height: auto;
   }
-  .modal-dialog.modal-fullscreen {
+  .bs-modal-dialog {
     max-width: 100%;
     bottom: 0 !important;
     position: absolute;
     left: 0;
   }
   // Modal Header section
-  .modal-header{
+  .bs-modal-header{
     background-color: $modal-header-color;
     padding-top: .62rem;
     padding-bottom: .62rem;
     border: 0;
-    .btn-action,
-    .btn-close{
+    .bs-btn-action,
+    .bs-btn-close{
       background-color: $modal-btn-color;
       color: $white;
       display: flex;
@@ -28,7 +28,7 @@
         box-shadow: none;
       }
     }
-    .btn-close{
+    .bs-btn-close{
       padding: .45rem;
       background-image: none;
       opacity: 1;
@@ -46,14 +46,14 @@
       margin-right: 1.25rem;
     }
   }
-  .header-actions{
+  .bs-header-actions{
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
   // Modal Body area
-  .modal-body{
+  .bs-modal-body{
     background-color: $modal-bg-color;
     .copy-snippet-code,
     .copy-info-code{
