@@ -447,7 +447,6 @@ $(function(){
       idName = $('.list-item.active').closest('.category').prev('.shuffle-item--visible').find(".list-items .list-item:last-child").attr('id');
       $('.list-item.active').closest('.category').find('.collapse').addClass("show")
       window.location.hash = "#"+idName;
-      console.log($('.list-item.active').closest('.category').find('.collapse'))
     }
   });
 
@@ -459,46 +458,48 @@ $(function(){
       idName = $('.list-item.active').closest('.category').next('.shuffle-item--visible').find(".list-items .list-item:first-child").attr('id');
       $('.list-item.active').closest('.category').find('.collapse').addClass("show")
       window.location.hash = "#"+idName;
-      console.log($('.list-item.active').closest('.category').find('.collapse'))
     }
   });
 
-
-
-  $(document).on('keyup', function(e) {
-    if($('body').hasClass('modal-open')){
-      var key = e.keyCode || e.charCode || e.which;
-      switch (key) {
-        case 27:
-          snippetModal.hide()
-          break;
-        case 37:
-          if(!editor.isFocused()){
-            $('.prev').trigger('click');
-          }
-          break;
-        case 39:
-          if(!editor.isFocused()){
-            $('.next').trigger('click');
-          }
-      }
-    }
-  });
-
-
-  //---------------------- Scroll to top ----------------------//
-  $(window).on('scroll', function () {
-    if ($(this).scrollTop() > 500) {
-      $('.scroll-top').fadeIn();
-    } else {
-      $('.scroll-top').fadeOut();
-    }
-  });
-  $('.scroll-top').on('click', function () {
-    $('html, body').animate({ scrollTop: 0 }, 100);
-    if (snippetModal) {
-      snippetModal.hide();
-    }
-  });
 })
+
+// On keyup events
+// on esc, hide modals
+// Next - Prev on arrow click
+$(document).on('keyup', function(e) {
+  if($('body').hasClass('modal-open')){
+    var key = e.keyCode || e.charCode || e.which;
+    switch (key) {
+      case 27:
+        snippetModal.hide()
+        break;
+      case 37:
+        if(!editor.isFocused()){
+          $('.prev').trigger('click');
+        }
+        break;
+      case 39:
+        if(!editor.isFocused()){
+          $('.next').trigger('click');
+        }
+    }
+  }
+});
+
+
+//---------------------- Scroll to top ----------------------//
+$(window).on('scroll', function () {
+  if ($(this).scrollTop() > 500) {
+    $('.scroll-top').fadeIn();
+  } else {
+    $('.scroll-top').fadeOut();
+  }
+});
+$('.scroll-top').on('click', function () {
+  $('html, body').animate({ scrollTop: 0 }, 100);
+  if (snippetModal) {
+    snippetModal.hide();
+  }
+});
+
 
