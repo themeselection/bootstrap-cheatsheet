@@ -344,7 +344,13 @@ copyContent.on('click', function (e) {
 
 //---------------------- ListItem Click ----------------------//
 
-var listItemElement = $('.list-item'), snippetModal;
+// replace for|id="value" with for|id="value1"
+function updateHTMLSnippet(htmlSnippet){
+  htmlSnippet = htmlSnippet.replace(/(\s(for|id)=")([\w-]*)(")/g, "$1$31$4");
+  return htmlSnippet;
+}
+
+var listItemElement = $('.list-item'), snippetModal, codeSnippet, codeSnippetFull;
 
 // Snippet Modal
 snippetModal = new bootstrap.Modal(document.getElementById('modal-snippet'),{
@@ -358,9 +364,9 @@ listItemElement.on('click',function(e){
 
   var $this = $(this),
   snippetTitle = $('.snippet-title');
-  var codeSnippet = $this.find('.code-snippet')[0].innerHTML;
+  codeSnippet = $this.find('.code-snippet')[0].innerHTML;
   if($this.find('.code-snippet-full').length){
-    var codeSnippetFull = $this.find('.code-snippet-full')[0].innerHTML;
+    codeSnippetFull = $this.find('.code-snippet-full')[0].innerHTML;
   }
 
   snippetTitle.text($this.find('.item-filter-text')[0].innerHTML);
@@ -371,8 +377,6 @@ listItemElement.on('click',function(e){
   window.location = $this.find('.list-item-text').attr("href")
 
   // initialize editor
-  // var editor = ace.edit("editor");
-  // editor.setTheme("ace/theme/twilight");
   editor.session.setMode("ace/mode/html");
   editor.setValue(codeSnippet);
 
@@ -391,7 +395,11 @@ listItemElement.on('click',function(e){
       customDemoClass = $this.data("custom-class");
     }
     $('#preview').removeClass().addClass("bd-example "+customDemoClass)
-    $('#preview').html(editor.getValue());
+    if($this.data("id-update")){
+      $('#preview').html(updateHTMLSnippet(editor.getValue()));
+    }else{
+      $('#preview').html(editor.getValue());
+    }
   }
 
   // on load update snippet with clicked attr
