@@ -1,15 +1,26 @@
 .bs-cheatsheet {
   .bd-example {
-    .fixed-top {
-      position: absolute;
-      margin: 0;
-    }
-
+    // Positions
+    .fixed-top,
     .fixed-bottom {
       position: absolute;
       margin: 0;
     }
 
+    @include media-breakpoint-down(sm) {
+      .sticky-top {
+        margin: -1.5rem -1.5rem 1rem;
+      }
+    }
+
+    @include media-breakpoint-up(md) {
+      .sticky-md-top {
+        position: static;
+        margin: -1.5rem -1.5rem 1rem;
+      }
+    }
+
+    // Dropdowns
     &.dropup-basic .dropup {
       position: absolute;
       bottom: 0%;
@@ -38,6 +49,7 @@
       margin-left: 5rem;
     }
 
+    // for tooltips and popovers
     &.modal-content-center > * {
       position: absolute;
       top: 50%;
