@@ -7,16 +7,14 @@
       margin: 0;
     }
 
-    @include media-breakpoint-down(sm) {
-      .sticky-top {
-        margin: -1.5rem -1.5rem 1rem;
-      }
+    .sticky-top {
+      margin: -1.5rem -1.5rem 1rem !important;
     }
 
     @include media-breakpoint-up(md) {
       .sticky-md-top {
         position: static;
-        margin: -1.5rem -1.5rem 1rem;
+        margin: -1.5rem -1.5rem 1rem !important;
       }
     }
 
