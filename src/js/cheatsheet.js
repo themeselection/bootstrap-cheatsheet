@@ -60,9 +60,11 @@ class Demo {
   }
 }
 // on link click
-// $('.card-header a').on("click", function(event){
-//   console.log("object")
-//   event.stopPropagation();
+// $('.item-link').on('click', function(e){
+//   // console.log(e.currentTarget.parentElement)
+//   console.log($(this).closest('.card-header'))
+//   $(this).closest('.card-header')
+//   e.stopPropagation();
 // })
 
 // On load event
@@ -91,6 +93,17 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault()
   })
 });
+
+// $(window).on('load', function(){
+//   var openModal = document.getElementById('modal-snippet')
+//   if($(openModal).hasClass('show')) {
+//     console.log("load")
+//     tooltipOnModal();
+//     popoverOnModal();
+//     validationOnModal();
+//     toastOnModal();
+//   }
+// })
 
 // On windows location/hash change
 $(window).on('hashchange', function(e){
@@ -190,11 +203,25 @@ function tooltipOnModal(){
 //---------------------- Initialize Popovers ----------------------//
 function popoverOnModal(){
   var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
-  var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-    var popOverEle = new bootstrap.Popover(popoverTriggerEl)
-    // popoverTriggerEl.toggleEnabled()
-  })
+  if (popoverTriggerList) {
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl)
+    })
+  }
 }
+
+//---------------------- Initialize Toasts ----------------------//
+function toastOnModal(){
+  var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+  if (toastElList) {
+    var toastList = toastElList.map(function (toastEl) {
+      return new bootstrap.Toast(toastEl, {
+        autohide: false
+      }).show()
+    })
+  }
+}
+
 
 // --------------------- on hover ------------------//
 
@@ -283,6 +310,7 @@ $('.list-item').on('mouseenter', function(e){
   tooltipOnModal()
   popoverOnModal()
   // validationOnModal();
+  toastOnModal();
 
   var forms = document.querySelectorAll('.needs-validation')
   Array.prototype.slice.call(forms)
@@ -418,9 +446,10 @@ listItemElement.on('click',function(e){
   }
 
   // Method Calls for modal previews
-  validationOnModal();
+  tooltipOnModal()
   popoverOnModal()
-  tooltipOnModal();
+  validationOnModal();
+  toastOnModal()
 
 })
 

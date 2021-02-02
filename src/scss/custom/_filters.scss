@@ -4,6 +4,16 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 3rem;
+    .form-control,
+    .input-group-text{
+      transition: border-color 0s;
+    }
+    .input-group:focus-within{
+      .form-control,
+      .input-group-text{
+        border-color: #7367F0 !important;
+      }
+    }
     .filter-search{
       max-width: 350px;
       border-radius: 5px;
