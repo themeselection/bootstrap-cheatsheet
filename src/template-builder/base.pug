@@ -1,4 +1,5 @@
 - var bodyCustomClass         = ''
+- var showAlert    = false
 
 doctype html
 html
@@ -24,8 +25,10 @@ html
             include contents/filters.html
             #grid.row
               block content
-            include contents/alert-messages.html
-          //- END: Content
+            include partials/no-items-found.html
+            if showAlert
+              include partials/alert-tip.html
+          // END: Content
 
     //- BEGIN: Footer
     block footer
