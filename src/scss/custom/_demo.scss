@@ -77,6 +77,10 @@
     background-color: $cheatsheet-primary;
     border-color: $cheatsheet-primary;
 
+    @include media-breakpoint-down(lg) {
+      bottom: 68px;
+    }
+
     &:focus {
       box-shadow: none;
     }
