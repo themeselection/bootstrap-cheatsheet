@@ -171,7 +171,7 @@ function loadListItem(sStrippedHash){
   listItemElement.removeClass("active");
   $this.addClass("active");
 
-  $('.list-item.active').closest('.category').find('.collapse').show()
+  $('.list-item.active').closest('.category').find('.collapse').addClass('show')
   $('.list-item.active').closest('.category').find('.card-header').removeClass('collapsed')
 
   shuffleCategory()
