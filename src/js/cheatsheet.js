@@ -412,6 +412,14 @@ $(function(){
       $temp.text(element).trigger('select');
       document.execCommand("copy");
       $temp.remove();
+
+      var toastElList = [].slice.call(document.querySelectorAll('.notification .toast'))
+      var toastList = toastElList.map(function (toastEl) {
+        return new bootstrap.Toast(toastEl, {
+          autohide: true,
+          delay: 2000
+        }).show()
+      })
     }
 
     // copy attribute on icon click

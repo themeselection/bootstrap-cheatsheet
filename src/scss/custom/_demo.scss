@@ -110,4 +110,12 @@
       text-transform: uppercase;
     }
   }
+  .notification {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    .toast{
+      width: 200px;
+    }
+  }
 }

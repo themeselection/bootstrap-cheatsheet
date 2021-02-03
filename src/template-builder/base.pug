@@ -23,12 +23,13 @@ html
           //- BEGIN: Content
           .container.bs-content
             include contents/filters.html
+            include contents/notification.html
             #grid.row
               block content
             include partials/no-items-found.html
             if showAlert
               include partials/alert-tip.html
-          // END: Content
+          //- END: Content
 
     //- BEGIN: Footer
     block footer
