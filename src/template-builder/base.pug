@@ -2,35 +2,35 @@
 
 doctype html
 html
-    // BEGIN: Head
+    //- BEGIN: Head
     head
         block meta
             include includes/head.pug
         block styles
             include includes/styles.pug
-    // END: Head
+    //- END: Head
     = '\n'
-    // BEGIN: Body
+    //- BEGIN: Body
     body.bs-cheatsheet(class=bodyCustomClass)
-        // BEGIN: Header
+        //- BEGIN: Header
         block header
           include partials/header.pug
-        // END: Header
+        //- END: Header
         main
           include partials/masthead.html
 
-          // BEGIN: Content
+          //- BEGIN: Content
           .container.bs-content
             include contents/filters.html
             #grid.row
               block content
             include contents/alert-messages.html
-          // END: Content
+          //- END: Content
 
-    // BEGIN: Footer
+    //- BEGIN: Footer
     block footer
         include partials/footer.html
-    // END: Footer
+    //- END: Footer
 
     block scripts
         include includes/scripts.pug
