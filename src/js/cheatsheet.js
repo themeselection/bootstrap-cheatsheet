@@ -168,25 +168,6 @@ function loadListItem(sStrippedHash){
     }
   }
 
-  // update preview on snippet change
-  // function updateCodeSnippet(){
-  //   var customDemoClass = "";
-  //   if($this.data("custom-class")){
-  //     customDemoClass = $this.data("custom-class");
-  //   }
-  //   $('#preview').removeClass().addClass("bd-example "+customDemoClass)
-  //   if($this.data("id-update")){
-  //     $('#preview').html(updateHTMLSnippet(editor.getValue()));
-  //   }else{
-  //     console.log(typeof editor.getValue())
-  //     $('#preview').html(editor.getValue());
-  //   }
-  // }
-
-  // on load update snippet with clicked attr
-  // updateCodeSnippet();
-
-  // Update preview on editor input change
   if(flag === true){
     updateCodeSnippet($this)
     flag= false
