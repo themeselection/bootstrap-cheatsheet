@@ -93,4 +93,17 @@
       }
     }
   }
+
+  // Alert - tip
+  .alert-tip {
+    padding: 1rem 1.5rem;
+    border-left: 0.5rem solid #42b983;
+    background-color: #f3f5f7;
+    margin: 1rem 0;
+
+    .alert-tip-title {
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+  }
 }
