@@ -11,17 +11,9 @@
 @import "custom/variables";
 @import "bootstrap/scss/variables";
 
-// BS mixins
-// @import "bootstrap-extended/mixins";
-// @import "bootstrap/scss/mixins";
-
 // BS scss
 @import 'bootstrap/scss/bootstrap'; // Bootstrap core
 
 // Custom scss
 @import 'custom/custom'; // Bootstrap Extended / Custom
-
-
-// Theme scss
-// @import 'theme'; // CheatSheet Theme
 

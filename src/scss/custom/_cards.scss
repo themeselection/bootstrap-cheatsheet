@@ -1,3 +1,4 @@
+// Style for each cards
 .bs-cheatsheet{
   .category{
     .card{
@@ -6,6 +7,7 @@
       box-shadow: 0 2px 16px -4px rgba($black, 0.22);
       background-color: $white;
       margin-bottom: 1.5rem;
+      // cheatsheet Card header
       .card-header{
         display: flex;
         justify-content: space-between;
@@ -28,6 +30,7 @@
           color: $white;
         }
       }
+      // cheatsheet Card body
       .card-body{
         padding:6px 0;
       }
@@ -69,6 +72,7 @@
             justify-content: space-between;
             align-items: center;
           }
+          // cheatsheet copy icon wrapper
           .list-item-copy{
             padding: 4px 4px 4px 0;
             display: none;
@@ -79,6 +83,7 @@
               }
             }
           }
+          // code snippet
           .code-snippet,
           .code-snippet-full{
             display: none;

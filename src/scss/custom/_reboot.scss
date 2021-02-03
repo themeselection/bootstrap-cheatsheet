@@ -3,18 +3,17 @@ body{
   font-family: Montserrat;
   font-size: 1rem;
 }
-
+// hightlight text style
 .cheatsheet-highlight{
   background-color: $highlight-color;
   color: $item-color;
 }
 
+// content margin
 .bs-content{
   margin-top: 3rem;
   margin-bottom: 1.5rem;
 }
-
-
 
 @include media-breakpoint-down(md) {
  .bs-content{

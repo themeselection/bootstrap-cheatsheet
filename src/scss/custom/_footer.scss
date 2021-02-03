@@ -1,4 +1,5 @@
 .bs-cheatsheet{
+  // CheatSheet Footer
   .cheatsheet-footer{
     background-color: $footer-bg;
     .row{
@@ -7,6 +8,7 @@
     a{
       text-decoration: none;
     }
+    // footer menu links
     .footer-links{
       border-right: 1px solid #ced4da;
       list-style: none;
@@ -22,11 +24,13 @@
         font-weight: 600;
       }
     }
+    // footer subscription
     .subscription-title{
       color: #5e5873;
       font-weight: 600;
       margin-bottom: 0;
     }
+    // CheatSheet social links
     .cheatsheet-social{
       align-items: center;
       .social-title{
@@ -42,6 +46,7 @@
         }
       }
     }
+    // subscription form scss
     .mailster-form{
       .mailster-form-fields{
         max-width: 450px;

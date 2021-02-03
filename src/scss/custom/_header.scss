@@ -1,4 +1,5 @@
 .bs-cheatsheet{
+  // CheatSheet Navbar
   .cheatsheet-navbar{
     background-color: $cheatsheet-primary;
     .navbar-toggler {
@@ -34,8 +35,8 @@
     }
   }
 
+  // CheatSheet Hero section
   .cheatsheet-hero{
-    // height: 340px;
     background-color: #f8f9fa;
     .cheatsheet-title{
       color: $cheatsheet-text-color;
@@ -62,6 +63,8 @@
   }
 }
 
+
+// CheatSheet Hero responsive style
 @include media-breakpoint-only(sm) {
   .bs-cheatsheet .cheatsheet-hero .cheatsheet-infoline span{
     white-space: nowrap;

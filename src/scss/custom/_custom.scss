@@ -4,12 +4,12 @@
 
 
 // BS Extended scss
-@import 'filters'; // Bootstrap Extended / Custom
-@import 'cards'; // Bootstrap Extended / Custom
+@import 'filters'; // Filter scss
+@import 'cards'; // cards scss
 
 @import 'editor'; // Editor scss
 @import 'modal'; // Modal scss
-@import 'footer'; // Modal scss
+@import 'footer'; // Footer scss
 
 // Scss for demo purpose only
 @import 'demo';
