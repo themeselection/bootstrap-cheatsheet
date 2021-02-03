@@ -31,6 +31,7 @@ class Demo {
    */
   _handleSearchKeyup(evt) {
     var searchText = evt.target.value.toLowerCase();
+    var totalItems = 0;
     var filteredItems = $(".item-filter-text");
       filteredItems.removeClass("cheatsheet-highlight");
     this.shuffle.filter((element, shuffle) => {
@@ -51,6 +52,7 @@ class Demo {
         var filteredItem = filteredItems[index];
         var titleText = filteredItem.innerHTML.toLowerCase().trim();
         if(titleText.indexOf(searchText) !== -1){
+          totalItems = totalItems + 1;
           var filteredElements = element.getElementsByClassName("collapse")
           for (var filteredElement of filteredElements) {
             filteredElement.classList.add("show")
@@ -58,8 +60,12 @@ class Demo {
           return true
         }
       }
-
     });
+    if(totalItems === 0){
+      $('.no-search-items').removeClass("d-none");
+    }else{
+      $('.no-search-items').addClass("d-none");
+    }
   }
 }
 
@@ -130,13 +136,26 @@ function updateCodeSnippet(snippetVal){
   if($this.data("id-update")){
     $('#preview').html(updateHTMLSnippet(editor.getValue()));
   }else{
-    console.log(typeof editor.getValue())
     $('#preview').html(editor.getValue());
   }
 }
 
+// To dispose tooltips
+function tooltipDispose(){
+  $('.tooltip.show').remove()
+}
+// To dispose popovers
+function popoverDispose(){
+  $('.popover.show').remove()
+}
+
 // On click/load of list item OR on hashchange
 function loadListItem(sStrippedHash){
+
+  // dispose popover if already exist
+  popoverDispose();
+  // dispose tooltip if already exist
+  tooltipDispose();
 
   var $this = $("#"+ sStrippedHash),
   flag=true,
@@ -329,6 +348,7 @@ $(function(){
   // On mouseleave, remove list item's copy icons
   $('.list-item').on('mouseleave', function(e){
     $('.list-item-copy').remove();
+    tooltipDispose()
   });
 
   // On mouseenter, add icons to list item
