@@ -272,7 +272,7 @@ function popoverOnModal(){
 
 // Initialize Toasts
 function toastOnModal(){
-  var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+  var toastElList = [].slice.call(document.querySelectorAll('.toast-demo'))
   if (toastElList) {
     var toastList = toastElList.map(function (toastEl) {
       return new bootstrap.Toast(toastEl, {
@@ -413,9 +413,9 @@ $(function(){
       document.execCommand("copy");
       $temp.remove();
 
-      var toastElList = [].slice.call(document.querySelectorAll('.notification .toast'))
-      var toastList = toastElList.map(function (toastEl) {
-        return new bootstrap.Toast(toastEl, {
+      var toastNotiList = [].slice.call(document.querySelectorAll('.notification-toast'))
+      var toastNotiList = toastNotiList.map(function (toastNotiEl) {
+        return new bootstrap.Toast(toastNotiEl, {
           autohide: true,
           delay: 2000
         }).show()
