@@ -68,6 +68,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // To create grid
   window.demo = new Demo(document.getElementById("grid"));
 
+  // On load focus on search
+  var searchInput = document.querySelector(".input-search");
+  searchInput.focus();
+
   // On load redirection to hash link
   directHashLinkRedirect()
   // card shuffle on collapse show/hide
@@ -116,10 +120,26 @@ snippetModal = new bootstrap.Modal(document.getElementById('modal-snippet'),{
   focus: false
 });
 
+function updateCodeSnippet(snippetVal){
+  var customDemoClass = "",
+  $this = snippetVal;
+  if($this.data("custom-class")){
+    customDemoClass = $this.data("custom-class");
+  }
+  $('#preview').removeClass().addClass("bd-example "+customDemoClass)
+  if($this.data("id-update")){
+    $('#preview').html(updateHTMLSnippet(editor.getValue()));
+  }else{
+    console.log(typeof editor.getValue())
+    $('#preview').html(editor.getValue());
+  }
+}
+
 // On click/load of list item OR on hashchange
 function loadListItem(sStrippedHash){
 
   var $this = $("#"+ sStrippedHash),
+  flag=true,
   snippetTitle = $('.snippet-title');
   codeSnippet = $this.find('.code-snippet')[0].innerHTML;
   if($this.find('.code-snippet-full').length){
@@ -141,31 +161,42 @@ function loadListItem(sStrippedHash){
   editor.setValue(codeSnippet);
 
   if(previewEditor !== ""){
-    previewEditor.session.setMode("ace/mode/html");
+    editor.session.setMode("ace/mode/scss");
+    previewEditor.session.setMode("ace/mode/scss");
     if($this.find('.code-snippet-full').length){
       previewEditor.setValue(codeSnippetFull);
     }
   }
 
   // update preview on snippet change
-  function updateCodeSnippet(){
-    var customDemoClass = "";
-    if($this.data("custom-class")){
-      customDemoClass = $this.data("custom-class");
-    }
-    $('#preview').removeClass().addClass("bd-example "+customDemoClass)
-    if($this.data("id-update")){
-      $('#preview').html(updateHTMLSnippet(editor.getValue()));
-    }else{
-      $('#preview').html(editor.getValue());
-    }
-  }
+  // function updateCodeSnippet(){
+  //   var customDemoClass = "";
+  //   if($this.data("custom-class")){
+  //     customDemoClass = $this.data("custom-class");
+  //   }
+  //   $('#preview').removeClass().addClass("bd-example "+customDemoClass)
+  //   if($this.data("id-update")){
+  //     $('#preview').html(updateHTMLSnippet(editor.getValue()));
+  //   }else{
+  //     console.log(typeof editor.getValue())
+  //     $('#preview').html(editor.getValue());
+  //   }
+  // }
 
   // on load update snippet with clicked attr
-  updateCodeSnippet();
+  // updateCodeSnippet();
 
   // Update preview on editor input change
-  editor.on("input", updateCodeSnippet);
+  if(flag === true){
+    updateCodeSnippet($this)
+    flag= false
+  }
+  editor.on("input", function(){
+    if(flag === true){
+      updateCodeSnippet($this)
+      flag= false
+    }
+  });
 
   if(!$('#modal-snippet').hasClass("show")){
     // Update variable modal titles
@@ -405,10 +436,8 @@ $(function(){
       copyToClipboard(codeSnippet);
     });
 
-    tooltipOnModal()
-    popoverOnModal()
-    validationOnModal();
-    toastOnModal();
+    // tooltip of list item copy icons
+    tooltipOnModal();
   })
 
   //---------------------- Copy Snippet ----------------------//
@@ -442,22 +471,30 @@ $(function(){
   $('.prev').on('click', function(){
     if($('.list-item.active').prev().length){
       idName = $('.list-item.active').prev().attr('id')
-      window.location.hash = "#"+idName;
+      if(idName){
+        window.location.hash = "#"+idName;
+      }
     }else{
       idName = $('.list-item.active').closest('.category').prev('.shuffle-item--visible').find(".list-items .list-item:last-child").attr('id');
       $('.list-item.active').closest('.category').find('.collapse').addClass("show")
-      window.location.hash = "#"+idName;
+      if(idName){
+        window.location.hash = "#"+idName;
+      }
     }
   });
 
   $('.next').on('click', function(){
     if($('.list-item.active').next().length){
       idName = $('.list-item.active').next().attr('id')
-      window.location.hash = "#"+idName;
+      if(idName){
+        window.location.hash = "#"+idName;
+      }
     }else{
       idName = $('.list-item.active').closest('.category').next('.shuffle-item--visible').find(".list-items .list-item:first-child").attr('id');
       $('.list-item.active').closest('.category').find('.collapse').addClass("show")
-      window.location.hash = "#"+idName;
+      if(idName){
+        window.location.hash = "#"+idName;
+      }
     }
   });
 
@@ -501,5 +538,3 @@ $('.scroll-top').on('click', function () {
     snippetModal.hide();
   }
 });
-
-
