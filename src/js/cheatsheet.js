@@ -179,10 +179,15 @@ function loadListItem(sStrippedHash){
   window.location = $this.find('.list-item-text').attr("href")
   // initialize editor
   editor.session.setMode("ace/mode/html");
+  editor.setOptions({
+    fontSize: "14px",
+    theme: "ace/theme/eclipse"
+  });
   editor.setValue(codeSnippet);
 
   if(previewEditor !== ""){
     editor.session.setMode("ace/mode/scss");
+    editor.setTheme("ace/theme/chrome");
     previewEditor.session.setMode("ace/mode/scss");
     if($this.find('.code-snippet-full').length){
       previewEditor.setValue(codeSnippetFull);
@@ -305,6 +310,10 @@ var editor = ace.edit("editor"),
 previewEditor = "";
 if($('#preview-editor').length){
   previewEditor = ace.edit("preview-editor");
+  previewEditor.setOptions({
+    fontSize: '14px',
+    theme: "ace/theme/chrome"
+  })
 }
 
 $(function(){
