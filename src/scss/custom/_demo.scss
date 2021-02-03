@@ -55,6 +55,17 @@
       transform: translate(-50%, -50%);
       margin: 0;
     }
+
+    // Modal preview
+    .modal {
+      display: block;
+      position: static;
+      overflow-x: auto;
+      .modal-content {
+        border: 1px solid rgba($black, 0.2);
+        border-radius: $border-radius;
+      }
+    }
   }
 
   // Scroll to top
