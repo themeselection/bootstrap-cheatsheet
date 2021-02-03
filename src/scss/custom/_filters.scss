@@ -8,6 +8,7 @@
     .form-control,
     .input-group-text{
       transition: border-color 0s;
+      border-right: 0;
     }
     // input search focus
     .input-group:focus-within{
