@@ -157,7 +157,8 @@ function loadListItem(sStrippedHash){
   // dispose tooltip if already exist
   tooltipDispose();
 
-  var $this = $("#"+ sStrippedHash),
+  // var $this = $("#"+ sStrippedHash),
+  var $this = $("[data-id='"+ sStrippedHash+"']"),
   flag=true,
   snippetTitle = $('.snippet-title');
   codeSnippet = $this.find('.code-snippet')[0].innerHTML;
@@ -172,6 +173,7 @@ function loadListItem(sStrippedHash){
 
   $('.list-item.active').closest('.category').find('.collapse').show()
   $('.list-item.active').closest('.category').find('.card-header').removeClass('collapsed')
+
   shuffleCategory()
 
   window.location = $this.find('.list-item-text').attr("href")
@@ -471,12 +473,14 @@ $(function(){
   var idName;
   $('.prev').on('click', function(){
     if($('.list-item.active').prev().length){
-      idName = $('.list-item.active').prev().attr('id')
+      idName = $('.list-item.active').prev().attr('data-id')
+      // idName = $('.list-item.active').prev().attr('id')
       if(idName){
         window.location.hash = "#"+idName;
       }
     }else{
-      idName = $('.list-item.active').closest('.category').prev('.shuffle-item--visible').find(".list-items .list-item:last-child").attr('id');
+      idName = $('.list-item.active').closest('.category').prev('.shuffle-item--visible').find(".list-items .list-item:last-child").attr('data-id');
+      // idName = $('.list-item.active').closest('.category').prev('.shuffle-item--visible').find(".list-items .list-item:last-child").attr('id');
       $('.list-item.active').closest('.category').find('.collapse').addClass("show")
       if(idName){
         window.location.hash = "#"+idName;
@@ -486,12 +490,14 @@ $(function(){
 
   $('.next').on('click', function(){
     if($('.list-item.active').next().length){
-      idName = $('.list-item.active').next().attr('id')
+      idName = $('.list-item.active').next().attr('data-id')
+      // idName = $('.list-item.active').next().attr('id')
       if(idName){
         window.location.hash = "#"+idName;
       }
     }else{
-      idName = $('.list-item.active').closest('.category').next('.shuffle-item--visible').find(".list-items .list-item:first-child").attr('id');
+      idName = $('.list-item.active').closest('.category').next('.shuffle-item--visible').find(".list-items .list-item:first-child").attr('data-id');
+      // idName = $('.list-item.active').closest('.category').next('.shuffle-item--visible').find(".list-items .list-item:first-child").attr('id');
       $('.list-item.active').closest('.category').find('.collapse').addClass("show")
       if(idName){
         window.location.hash = "#"+idName;

@@ -5,7 +5,7 @@
     </div>
     <div class="card-body collapse show" id="categoryGrid">
       <ul class="list-items">
-        <li class="list-item" id="make-row">
+        <li class="list-item" data-id="make-row">
           <div class="list-item-content">
             <a href="#make-row" class="list-item-text">
               <span class="item-filter-text">make-row</span>
@@ -22,7 +22,7 @@
   margin-left: calc(var(--#{$variable-prefix}gutter-x) / -2);
 }</div>
         </li>
-        <li class="list-item" id="make-col-ready">
+        <li class="list-item" data-id="make-col-ready">
           <div class="list-item-content">
             <a href="#make-col-ready" class="list-item-text">
               <span class="item-filter-text">make-col-ready</span>
@@ -39,7 +39,7 @@
   margin-top: var(--#{$variable-prefix}gutter-y);
 }</div>
         </li>
-        <li class="list-item" id="make-col">
+        <li class="list-item" data-id="make-col">
           <div class="list-item-content">
             <a href="#make-col" class="list-item-text">
               <span class="item-filter-text">make-col</span>
@@ -51,7 +51,7 @@
   width: percentage($size / $columns);
 }</div>
         </li>
-        <li class="list-item" id="make-col-auto">
+        <li class="list-item" data-id="make-col-auto">
           <div class="list-item-content">
             <a href="#make-col-auto" class="list-item-text">
               <span class="item-filter-text">make-col-auto</span>
@@ -63,7 +63,7 @@
   width: auto;
 }</div>
         </li>
-        <li class="list-item" id="make-col-offset">
+        <li class="list-item" data-id="make-col-offset">
           <div class="list-item-content">
             <a href="#make-col-offset" class="list-item-text">
               <span class="item-filter-text">make-col-offset</span>
@@ -75,7 +75,7 @@
   margin-left: if($num == 0, 0, percentage($num));
 }</div>
         </li>
-        <li class="list-item" id="row-cols">
+        <li class="list-item" data-id="row-cols">
           <div class="list-item-content">
             <a href="#row-cols" class="list-item-text">
               <span class="item-filter-text">row-cols</span>
@@ -89,7 +89,7 @@
   }
 }</div>
         </li>
-        <li class="list-item" id="make-grid-columns">
+        <li class="list-item" data-id="make-grid-columns">
           <div class="list-item-content">
             <a href="#make-grid-columns" class="list-item-text">
               <span class="item-filter-text">make-grid-columns</span>
