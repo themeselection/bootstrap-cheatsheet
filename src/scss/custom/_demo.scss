@@ -134,4 +134,17 @@
       top: 10px;
     }
   }
+
+  // social button share (addthis)
+  .addthis-smartlayers {
+    .at-share-btn {
+      &:hover {
+        border-top-right-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+  }
 }
