@@ -306,6 +306,17 @@ function directHashLinkRedirect(){
   }
 }
 
+// On copied, show toast
+function copyToast(){
+  var toastNotiList = [].slice.call(document.querySelectorAll('.notification-toast'))
+  var toastNotiList = toastNotiList.map(function (toastNotiEl) {
+    return new bootstrap.Toast(toastNotiEl, {
+      autohide: true,
+      delay: 2000
+    }).show()
+  })
+}
+
 $(function(){
 
   // On modal close location hash clear
@@ -407,13 +418,7 @@ $(function(){
       document.execCommand("copy");
       $temp.remove();
 
-      var toastNotiList = [].slice.call(document.querySelectorAll('.notification-toast'))
-      var toastNotiList = toastNotiList.map(function (toastNotiEl) {
-        return new bootstrap.Toast(toastNotiEl, {
-          autohide: true,
-          delay: 2000
-        }).show()
-      })
+      copyToast();
     }
 
     // copy attribute on icon click
@@ -454,6 +459,7 @@ $(function(){
     editor.selectAll();
     editor.focus();
     document.execCommand('copy');
+    copyToast();
   });
 
   // Copy Code Snippet of mixins and variables
@@ -464,6 +470,7 @@ $(function(){
       previewEditor.selectAll();
       previewEditor.focus();
       document.execCommand('copy');
+      copyToast();
     }
   });
 
