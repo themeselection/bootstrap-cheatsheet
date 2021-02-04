@@ -106,6 +106,25 @@ $(window).on('hashchange', function(e){
   directHashLinkRedirect()
 });
 
+// Initializing Editors
+var editor = ace.edit("editor"),
+previewEditor = "";
+// initialize editor
+// editor.session.setMode();
+editor.setOptions({
+  fontSize: "14px",
+  theme: "ace/theme/eclipse",
+  mode: "ace/mode/html"
+});
+
+if($('#preview-editor').length){
+  previewEditor = ace.edit("preview-editor");
+  previewEditor.setOptions({
+    fontSize: '14px',
+    theme: "ace/theme/chrome"
+  })
+}
+
 //---------------------- Functions / Methods ----------------------//
 
 // replace id="value" with id="value1"
@@ -157,9 +176,7 @@ function loadListItem(sStrippedHash){
   // dispose tooltip if already exist
   tooltipDispose();
 
-  // var $this = $("#"+ sStrippedHash),
   var $this = $("[data-id='"+ sStrippedHash+"']"),
-  flag=true,
   snippetTitle = $('.snippet-title');
   codeSnippet = $this.find('.code-snippet')[0].innerHTML;
   if($this.find('.code-snippet-full').length){
@@ -177,12 +194,7 @@ function loadListItem(sStrippedHash){
   shuffleCategory()
 
   window.location = $this.find('.list-item-text').attr("href")
-  // initialize editor
-  editor.session.setMode("ace/mode/html");
-  editor.setOptions({
-    fontSize: "14px",
-    theme: "ace/theme/eclipse"
-  });
+
   editor.setValue(codeSnippet);
 
   if(previewEditor !== ""){
@@ -194,16 +206,7 @@ function loadListItem(sStrippedHash){
     }
   }
 
-  if(flag === true){
-    updateCodeSnippet($this)
-    flag= false
-  }
-  editor.on("input", function(){
-    if(flag === true){
-      updateCodeSnippet($this)
-      flag= false
-    }
-  });
+  updateCodeSnippet($this)
 
   if(!$('#modal-snippet').hasClass("show")){
     // Update variable modal titles
@@ -220,6 +223,12 @@ function loadListItem(sStrippedHash){
   validationOnModal();
   toastOnModal()
 }
+
+editor.on("change", function(){
+  if(location.hash){
+    updateCodeSnippet($(location.hash))
+  }
+});
 
 // To collapse all cards
 function collapseAllCategory() {
@@ -291,17 +300,6 @@ function directHashLinkRedirect(){
   }else{
     snippetModal.hide()
   }
-}
-
-// Initializing Editors
-var editor = ace.edit("editor"),
-previewEditor = "";
-if($('#preview-editor').length){
-  previewEditor = ace.edit("preview-editor");
-  previewEditor.setOptions({
-    fontSize: '14px',
-    theme: "ace/theme/chrome"
-  })
 }
 
 $(function(){
@@ -479,13 +477,11 @@ $(function(){
   $('.prev').on('click', function(){
     if($('.list-item.active').prev().length){
       idName = $('.list-item.active').prev().attr('data-id')
-      // idName = $('.list-item.active').prev().attr('id')
       if(idName){
         window.location.hash = "#"+idName;
       }
     }else{
       idName = $('.list-item.active').closest('.category').prev('.shuffle-item--visible').find(".list-items .list-item:last-child").attr('data-id');
-      // idName = $('.list-item.active').closest('.category').prev('.shuffle-item--visible').find(".list-items .list-item:last-child").attr('id');
       $('.list-item.active').closest('.category').find('.collapse').addClass("show")
       if(idName){
         window.location.hash = "#"+idName;
@@ -496,13 +492,11 @@ $(function(){
   $('.next').on('click', function(){
     if($('.list-item.active').next().length){
       idName = $('.list-item.active').next().attr('data-id')
-      // idName = $('.list-item.active').next().attr('id')
       if(idName){
         window.location.hash = "#"+idName;
       }
     }else{
       idName = $('.list-item.active').closest('.category').next('.shuffle-item--visible').find(".list-items .list-item:first-child").attr('data-id');
-      // idName = $('.list-item.active').closest('.category').next('.shuffle-item--visible').find(".list-items .list-item:first-child").attr('id');
       $('.list-item.active').closest('.category').find('.collapse').addClass("show")
       if(idName){
         window.location.hash = "#"+idName;
