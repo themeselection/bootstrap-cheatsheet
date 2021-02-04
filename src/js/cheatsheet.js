@@ -2,7 +2,8 @@
 //---------------------- Shuffle Filter ----------------------//
 
 // Categories shuffle variable
-var Shuffle = window.Shuffle;
+var Shuffle = window.Shuffle,
+assetsPath = "assets/images";
 
 // filter & shuffle cards
 class Demo {
@@ -368,19 +369,29 @@ $(function(){
 
     var $this = $(this),
     $html = "",
-    $attr = "";
+    $attr = "",
+    $attrImage,$codeImage;
     if($($this).attr('data-clipboard-text')){
       $attr = $($this).attr('data-clipboard-text');
     }
     $this.find('.list-item-copy').remove();
+
+    if($($this).hasClass('active')){
+      $attrImage = 'files-white.png'
+      $codeImage = 'code-slash-white.png'
+    }else{
+      $attrImage = 'files.png'
+      $codeImage = 'code-slash.png'
+    }
+
     if($("body").hasClass('bs-mixins')){
       // For mixins page icons
       $html = `<div class="list-item-copy">
         <a class="list-item-copy-attr" data-original-title="Copy mixin name" data-bs-toggle="tooltip" title="Copy mixin name">
-          <img src="assets/images/fonts/files.png" alt="Copy code">
+          <img src="`+assetsPath+`/fonts/`+$attrImage+`" alt="Copy code">
         </a>
         <a class="list-item-copy-code" data-original-title="copy mixin to clipboard" data-bs-toggle="tooltip" title="Copy mixin to clipboard">
-          <img src="assets/images/fonts/code-slash.png" alt="Copy snippet">
+          <img src="`+assetsPath+`/fonts/`+$codeImage+`" alt="Copy snippet">
         </a>
       </div>`;
     }else{
@@ -388,13 +399,13 @@ $(function(){
       $html = `<div class="list-item-copy">`
       if($attr !== ""){
         $html +=  `<a class="list-item-copy-attr" data-original-title="copy to clipboard" data-clipboard-text="`+$attr+`" data-bs-toggle="tooltip" title="CSS class to clipboard">
-          <img src="assets/images/fonts/files.png" alt="Copy code">
+          <img src="`+assetsPath+`/fonts/`+$attrImage+`" alt="Copy code">
         </a>`
       }
       if(!($("body").hasClass('bs-variables'))){
       // not used this icon on variables
         $html += `<a class="list-item-copy-code" data-original-title="copy snippet to clipboard" data-bs-toggle="tooltip" title="Code snippet to clipboard">
-          <img src="assets/images/fonts/code-slash.png" alt="Copy snippet">
+          <img src="`+assetsPath+`/fonts/`+$codeImage+`" alt="Copy snippet">
         </a>`
       }
       $html += `</div>`;
