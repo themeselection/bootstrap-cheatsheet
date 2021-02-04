@@ -376,7 +376,7 @@ $(function(){
     }
     $this.find('.list-item-copy').remove();
 
-    if($($this).hasClass('active')){
+    if($($this).hasClass('active') || $($this).hasClass('list-item-bs-new')){
       $attrImage = 'files-white.png'
       $codeImage = 'code-slash-white.png'
     }else{
