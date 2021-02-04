@@ -111,12 +111,15 @@
     }
   }
   .notification {
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
-    z-index: 9;
-    .toast{
+    .notification-toast {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 9;
       width: 200px;
+      &:not(.show) {
+        z-index: -1;
+      }
     }
   }
 
