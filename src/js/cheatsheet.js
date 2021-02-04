@@ -80,6 +80,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // On load redirection to hash link
   directHashLinkRedirect()
+
+  // tooltip initialized
+  tooltipOnModal();
+
   // card shuffle on collapse show/hide
   var collapseItems = document.getElementsByClassName('collapse')
   for (var collapseItem of collapseItems) {
