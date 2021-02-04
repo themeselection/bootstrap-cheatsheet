@@ -9,7 +9,7 @@ Use `gulp dist-clean` to clean assets
 Use `gulp dist-css` to create css assets
 
 ## To copy JS file to assets
-Use `gulp dist-jd` to create js assets
+Use `gulp dist-js` to create js assets
 
 ## To clean HTML files and regenerate then all using PUG
 Use `gulp dist-html` to generate HTML files

@@ -44,11 +44,6 @@ gulp.task(
 // Dist JS
 gulp.task('dist-js', gulp.series(cleanTasks.js, copyTask.js, uglifyTasks.js, notifyTasks.js));
 
-// Default / Basic tasks
-gulp.task('dist', gulp.parallel('dist-css', 'dist-js'));
-
-gulp.task('default', gulp.parallel('dist-css', 'dist-js'));
-
 // Dist HTML
 gulp.task(
   'dist-html',
@@ -63,3 +58,8 @@ gulp.task('beautify-html', gulp.series(beautifyTasks.html));
 
 // Replacement Tasks
 gulp.task('replacement', gulp.series(replaceTasks.css, replaceTasks.js));
+
+// Default / Basic tasks
+gulp.task('dist', gulp.parallel('dist-clean', 'dist-css', 'dist-js', 'dist-html', 'beautify-html', 'replacement'));
+
+gulp.task('default', gulp.parallel('dist-css', 'dist-js'));
