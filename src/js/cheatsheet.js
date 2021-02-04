@@ -173,6 +173,56 @@ function popoverDispose(){
   $('.popover.show').remove()
 }
 
+function onLoadIcons($listItem){
+  var $html = "",
+  $attr = "",
+  $this = $listItem,
+  $attrImage,
+  $codeImage;
+
+  if($($this).attr('data-clipboard-text')){
+    $attr = $($this).attr('data-clipboard-text');
+  }
+  $this.find('.list-item-copy').remove();
+
+  if($($this).hasClass('active') || ($('body').hasClass('show-highlight') && $($this).hasClass('list-item-bs-new'))){
+    $attrImage = 'files-white.png'
+    $codeImage = 'code-slash-white.png'
+  }else{
+    $attrImage = 'files.png'
+    $codeImage = 'code-slash.png'
+  }
+
+  if($("body").hasClass('bs-mixins')){
+    // For mixins page icons
+    $html = `<div class="list-item-copy">
+      <a class="list-item-copy-attr" data-original-title="Copy mixin name" data-bs-toggle="tooltip" title="Copy mixin name">
+        <img src="`+assetsPath+`/fonts/`+$attrImage+`" alt="Copy code">
+      </a>
+      <a class="list-item-copy-code" data-original-title="copy mixin to clipboard" data-bs-toggle="tooltip" title="Copy mixin to clipboard">
+        <img src="`+assetsPath+`/fonts/`+$codeImage+`" alt="Copy snippet">
+      </a>
+    </div>`;
+  }else{
+    // For classes page icons & variables
+    $html = `<div class="list-item-copy">`
+    if($attr !== ""){
+      $html +=  `<a class="list-item-copy-attr" data-original-title="copy to clipboard" data-clipboard-text="`+$attr+`" data-bs-toggle="tooltip" title="CSS class to clipboard">
+        <img src="`+assetsPath+`/fonts/`+$attrImage+`" alt="Copy code">
+      </a>`
+    }
+    if(!($("body").hasClass('bs-variables'))){
+    // not used this icon on variables
+      $html += `<a class="list-item-copy-code" data-original-title="copy snippet to clipboard" data-bs-toggle="tooltip" title="Code snippet to clipboard">
+        <img src="`+assetsPath+`/fonts/`+$codeImage+`" alt="Copy snippet">
+      </a>`
+    }
+    $html += `</div>`;
+  }
+
+  $this.find('.list-item-content').append($html);
+}
+
 // On click/load of list item OR on hashchange
 function loadListItem(sStrippedHash){
 
@@ -192,6 +242,8 @@ function loadListItem(sStrippedHash){
 
   listItemElement.removeClass("active");
   $this.addClass("active");
+
+  onLoadIcons($this);
 
   $('.list-item.active').closest('.category').find('.collapse').addClass('show')
   $('.list-item.active').closest('.category').find('.card-header').removeClass('collapsed')
@@ -367,51 +419,10 @@ $(function(){
   // On mouseenter, add icons to list item
   $('.list-item').on('mouseenter', function(e){
 
-    var $this = $(this),
-    $html = "",
-    $attr = "",
-    $attrImage,$codeImage;
-    if($($this).attr('data-clipboard-text')){
-      $attr = $($this).attr('data-clipboard-text');
-    }
-    $this.find('.list-item-copy').remove();
+    var $this = $(this);
 
-    if($($this).hasClass('active') || $($this).hasClass('list-item-bs-new')){
-      $attrImage = 'files-white.png'
-      $codeImage = 'code-slash-white.png'
-    }else{
-      $attrImage = 'files.png'
-      $codeImage = 'code-slash.png'
-    }
-
-    if($("body").hasClass('bs-mixins')){
-      // For mixins page icons
-      $html = `<div class="list-item-copy">
-        <a class="list-item-copy-attr" data-original-title="Copy mixin name" data-bs-toggle="tooltip" title="Copy mixin name">
-          <img src="`+assetsPath+`/fonts/`+$attrImage+`" alt="Copy code">
-        </a>
-        <a class="list-item-copy-code" data-original-title="copy mixin to clipboard" data-bs-toggle="tooltip" title="Copy mixin to clipboard">
-          <img src="`+assetsPath+`/fonts/`+$codeImage+`" alt="Copy snippet">
-        </a>
-      </div>`;
-    }else{
-      // For classes page icons & variables
-      $html = `<div class="list-item-copy">`
-      if($attr !== ""){
-        $html +=  `<a class="list-item-copy-attr" data-original-title="copy to clipboard" data-clipboard-text="`+$attr+`" data-bs-toggle="tooltip" title="CSS class to clipboard">
-          <img src="`+assetsPath+`/fonts/`+$attrImage+`" alt="Copy code">
-        </a>`
-      }
-      if(!($("body").hasClass('bs-variables'))){
-      // not used this icon on variables
-        $html += `<a class="list-item-copy-code" data-original-title="copy snippet to clipboard" data-bs-toggle="tooltip" title="Code snippet to clipboard">
-          <img src="`+assetsPath+`/fonts/`+$codeImage+`" alt="Copy snippet">
-        </a>`
-      }
-      $html += `</div>`;
-    }
-
-    $this.find('.list-item-content').append($html);
+    // Load Here
+    onLoadIcons($this);
 
     //---------------------- Copy ----------------------//
     var copyAttr = $('.list-item-copy-attr'),
