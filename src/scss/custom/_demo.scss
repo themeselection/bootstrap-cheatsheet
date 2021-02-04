@@ -120,6 +120,9 @@
       &:not(.show) {
         z-index: -1;
       }
+      &.bg-info {
+        background-color: $notification-bg-color !important;
+      }
     }
   }
 
