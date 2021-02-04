@@ -119,4 +119,13 @@
       width: 200px;
     }
   }
+
+  // image as an external link in card header
+  .category {
+    .card > a.item-link {
+      position: absolute;
+      right: 15px;
+      top: 10px;
+    }
+  }
 }
