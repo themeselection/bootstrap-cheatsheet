@@ -366,14 +366,10 @@ $(function(){
       // For mixins page icons
       $html = `<div class="list-item-copy">
         <a class="list-item-copy-attr" data-original-title="Copy mixin name" data-bs-toggle="tooltip" title="Copy mixin name">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-files" viewBox="0 0 16 16">
-            <path d="M13 0H6a2 2 0 0 0-2 2 2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2 2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm0 13V4a2 2 0 0 0-2-2H5a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1zM3 4a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4z"/>
-          </svg>
+          <img src="assets/images/fonts/files.png" alt="Copy code">
         </a>
         <a class="list-item-copy-code" data-original-title="copy mixin to clipboard" data-bs-toggle="tooltip" title="Copy mixin to clipboard">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-code-slash" viewBox="0 0 16 16">
-            <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z"/>
-          </svg>
+          <img src="assets/images/fonts/code-slash.png" alt="Copy snippet">
         </a>
       </div>`;
     }else{
@@ -381,17 +377,13 @@ $(function(){
       $html = `<div class="list-item-copy">`
       if($attr !== ""){
         $html +=  `<a class="list-item-copy-attr" data-original-title="copy to clipboard" data-clipboard-text="`+$attr+`" data-bs-toggle="tooltip" title="CSS class to clipboard">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-files" viewBox="0 0 16 16">
-            <path d="M13 0H6a2 2 0 0 0-2 2 2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2 2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm0 13V4a2 2 0 0 0-2-2H5a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1zM3 4a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4z"/>
-          </svg>
+          <img src="assets/images/fonts/files.png" alt="Copy code">
         </a>`
       }
       if(!($("body").hasClass('bs-variables'))){
       // not used this icon on variables
         $html += `<a class="list-item-copy-code" data-original-title="copy snippet to clipboard" data-bs-toggle="tooltip" title="Code snippet to clipboard">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-code-slash" viewBox="0 0 16 16">
-            <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z"/>
-          </svg>
+          <img src="assets/images/fonts/code-slash.png" alt="Copy snippet">
         </a>`
       }
       $html += `</div>`;
