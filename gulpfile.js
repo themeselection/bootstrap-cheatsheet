@@ -23,7 +23,6 @@ const pugTasks = require('./gulp-tasks/pug')(gulp);
 const replaceTasks = require('./gulp-tasks/replace')(gulp);
 const scssTasks = require('./gulp-tasks/scss')(gulp);
 const uglifyTasks = require('./gulp-tasks/uglify')(gulp);
-const notifyTasks = require('./gulp-tasks/notify')(gulp);
 
 // Clean CSS & JS
 gulp.task('dist-clean', cleanTasks.css, cleanTasks.js);
@@ -36,18 +35,17 @@ gulp.task(
     scssTasks.pages,
     autoPrefixTasks.css,
     cssTasks.css_comb,
-    cssTasks.css_min,
-    gulp.parallel(notifyTasks.css)
+    cssTasks.css_min
   )
 );
 
 // Dist JS
-gulp.task('dist-js', gulp.series(cleanTasks.js, copyTask.js, uglifyTasks.js, notifyTasks.js));
+gulp.task('dist-js', gulp.series(cleanTasks.js, copyTask.js, uglifyTasks.js));
 
 // Dist HTML
 gulp.task(
   'dist-html',
-  gulp.series(cleanTasks.html, pugTasks.html, notifyTasks.html)
+  gulp.series(cleanTasks.html, pugTasks.html)
 );
 
 // Monitor Changes
