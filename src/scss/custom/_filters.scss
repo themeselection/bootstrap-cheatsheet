@@ -104,6 +104,9 @@
   .subscription-alert:not(.show){
     position: absolute;
   }
+  .subscription-alert.hide{
+    opacity: 0;
+  }
 }
 
 
