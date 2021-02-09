@@ -99,6 +99,11 @@
       box-shadow: none;
     }
   }
+
+  // Subscription alert action
+  .subscription-alert:not(.show){
+    position: absolute;
+  }
 }
 
 
@@ -112,9 +117,10 @@
     }
   }
 }
+
 @include media-breakpoint-down(md) {
   // below medium screen filter margin
   .bs-cheatsheet .cheatsheet-filters{
     margin-bottom: 1.5rem;
   }
- }
+}

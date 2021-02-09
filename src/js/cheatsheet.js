@@ -75,6 +75,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // To create grid
   window.demo = new Demo(document.getElementById("grid"));
 
+  if(location.search === "?success=success"){
+    $('.subscription-alert').removeClass('hide').addClass('show');
+  }
+
   // On load focus on search
   var searchInput = document.querySelector(".input-search");
   searchInput.focus();
