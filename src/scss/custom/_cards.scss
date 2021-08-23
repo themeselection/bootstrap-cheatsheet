@@ -1,14 +1,14 @@
 // Style for each cards
-.bs-cheatsheet{
-  .category{
-    .card{
+.bs-cheatsheet {
+  .category {
+    .card {
       border: 0;
       border-radius: 5px;
       box-shadow: 0 2px 16px -4px rgba($black, 0.22);
       background-color: $white;
       margin-bottom: 1.5rem;
       // cheatsheet Card header
-      .card-header{
+      .card-header {
         padding: 14px 38px 14px 18px;
         border-radius: 5px;
         background-color: $card-head-bg;
@@ -19,70 +19,70 @@
         font-style: normal;
         line-height: normal;
         letter-spacing: 1px;
-        &:not(.collapsed){
+        &:not(.collapsed) {
           border-bottom-left-radius: 0;
           border-bottom-right-radius: 0;
         }
-        .item-link{
+        .item-link {
           color: $white;
         }
       }
       // cheatsheet Card body
-      .card-body{
-        padding:6px 0;
+      .card-body {
+        padding: 6px 0;
       }
       // list of categories
-      .list-items{
+      .list-items {
         padding: 0;
         margin: 0;
         // each list item of categories
-        .list-item{
+        .list-item {
           list-style: none;
           min-height: 32px;
-          a.list-item-text{
+          a.list-item-text {
             padding: 4px 56px 4px 18px;
             color: $item-color;
             font-weight: 400;
             flex-grow: 1;
             text-decoration: none;
           }
-          &:hover{
+          &:hover {
             background-color: rgba($cheatsheet-primary, 0.08);
-            a{
+            a {
               color: $cheatsheet-primary;
             }
-            .list-item-copy{
+            .list-item-copy {
               display: flex;
               position: absolute;
               right: 0;
             }
           }
-          &.active{
+          &.active {
             background-color: $cheatsheet-primary;
             scroll-margin-top: 3rem;
-            a{
+            a {
               color: $white;
             }
           }
-          .list-item-content{
+          .list-item-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
           }
           // cheatsheet copy icon wrapper
-          .list-item-copy{
+          .list-item-copy {
             padding: 4px 4px 4px 0;
             display: none;
-            a{
+            a {
               padding-right: 9px;
-              &:hover{
+              &:hover {
                 cursor: pointer;
               }
             }
           }
           // code snippet
           .code-snippet,
-          .code-snippet-full{
+          .code-snippet-full {
             display: none;
           }
         }
@@ -90,11 +90,11 @@
     }
   }
   // New in Bootstrap 5 highlight style
-  &.show-highlight{
-    .category .card .list-items .list-item{
-      &.list-item-bs-new{
+  &.show-highlight {
+    .category .card .list-items .list-item {
+      &.list-item-bs-new {
         background-color: $highlight-new-bg-color;
-        a{
+        a {
           color: $white;
         }
       }
@@ -103,10 +103,16 @@
 }
 
 // card collapse and collapsing transition
-.collapse, .collapsing{
+.collapse:not(.collapse-horizontal),
+.collapsing:not(.collapse-horizontal) {
   transition: none !important;
 }
 // Variable page specific style
-.bs-cheatsheet.bs-variables .category .card .list-items .list-item a.list-item-text{
+.bs-cheatsheet.bs-variables
+  .category
+  .card
+  .list-items
+  .list-item
+  a.list-item-text {
   padding-right: 32px;
 }
