@@ -66,7 +66,7 @@ All **suggestions/PR** are welcome!
 
 ## Looking For Premium Bootstrap Admin Templates ??
 
-**[ThemeSelection](https://themeselection.com/)** provides Selected high quality, modern design, professional and easy-to-use Free and premium [Bootstrap Admin Templates](https://themeselection.com/products/category/bootstrap-admin-templates/), HTML Themes and UI Kits to create your applications faster!.
+**[ThemeSelection](https://themeselection.com/)** provides Selected high quality, modern design, professional and easy-to-use Free and premium **[Bootstrap Admin Templates](https://themeselection.com/products/category/bootstrap-admin-templates/)**, and **[Free UI Kits](https://themeselection.com/products/category/free-ui-kits/) to create your applications faster!.
 
 ## Useful Links 🔗
 
