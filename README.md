@@ -64,9 +64,11 @@ All **suggestions/PR** are welcome!
 
 **We request you to keep ThemeSelection credit link if you share this tool or add it on blog post.**
 
-## Looking For Premium Bootstrap Admin Templates ??
+## Looking For Premium Admin Templates ??
 
-**[ThemeSelection](https://themeselection.com/)** provides Selected high quality, modern design, professional and easy-to-use Free and premium **[Bootstrap Admin Templates](https://themeselection.com/products/category/bootstrap-admin-templates/)**, and **[Free UI Kits](https://themeselection.com/products/category/free-ui-kits/) to create your applications faster!.
+**[ThemeSelection](https://themeselection.com/)** provides Selected high quality, modern design, professional and easy-to-use Free and Premium [Bootstrap Admin Templates](https://themeselection.com/products/category/bootstrap-admin-templates/), [VueJS Admin Templates](https://themeselection.com/products/category/vuejs-admin-templates/),[Laravel Admin Templates](https://themeselection.com/products/category/laravel-admin-templates/) HTML Themes and [Free UI Kits](https://themeselection.com/products/category/free-ui-kits/) to create your applications faster!.
+
+If you want to [Download Free Admin Templates](https://themeselection.com/products/category/download-free-admin-templates/) then do visit [ThemeSelection](https://themeselection.com/).
 
 ## Useful Links 🔗
 
