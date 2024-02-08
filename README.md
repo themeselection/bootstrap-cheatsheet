@@ -76,6 +76,7 @@ If you want to [Download Free Admin Templates](https://themeselection.com/produc
 * [More products](https://themeselection.com/products/) from ThemeSelection
 * [Freebies](https://themeselection.com/products/category/freebies/) from ThemeSelection
 * [Blog](https://themeselection.com/blog/)
+* [Vue CheatSheet](https://vue-cheatsheet.themeselection.com/)
 
 ## Social Media 😇
 
