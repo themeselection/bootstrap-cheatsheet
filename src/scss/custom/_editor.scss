@@ -1,6 +1,6 @@
 // Editor & preview style
 .bs-cheatsheet.modal-open{
-  overflow: auto;
+  overflow: auto !important;
   margin-bottom: $modal-height;
   padding-right: 0 !important;
 }
