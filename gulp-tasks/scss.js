@@ -1,4 +1,4 @@
-var sass = require('gulp-sass');
+var sass = require('gulp-sass')(require('sass'));
 var merge = require('merge-stream');
 
 module.exports = (gulp, callback) => {
