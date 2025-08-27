@@ -34,7 +34,7 @@ gulp.task(
     cleanTasks.css,
     scssTasks.pages,
     autoPrefixTasks.css,
-    cssTasks.css_comb,
+    // cssTasks.css_comb, // Disabled due to compatibility issues with Bootstrap 5.3.3 CSS custom properties
     cssTasks.css_min
   )
 );
